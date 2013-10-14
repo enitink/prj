@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <CommonDefs.h>
-#include <commonUtils.h>
+#include <gCommonUtils.h>
 
 using namespace std;
 using namespace gen::common::defs;
@@ -46,7 +46,7 @@ public:
 template < class T >
 bool gHeap<T>::createHeap()
 {
-	int i, j, k;
+	u32_t i, j, k;
 	switch (__heapType)
 	{
 	case MAX_HEAP:

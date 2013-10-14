@@ -31,7 +31,6 @@ generic/Makefile
 generic/Makefile.in
 generic/common/Makefile
 generic/common/Makefile.in
-generic/common/src/
 generic/ds/Makefile
 generic/ds/Makefile.in
 generic/ds/src/.deps/
@@ -54,3 +53,6 @@ generic/strAlgo/test/gTestString
 generic/strAlgo/test/*.o
 install-sh
 missing
+generic/common/src/.deps/
+generic/common/src/*.o
+generic/common/src/*.a
