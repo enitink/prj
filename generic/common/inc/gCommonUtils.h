@@ -1,6 +1,10 @@
 #ifndef _COMMON_UTILS_H_
 #define _COMMON_UTILS_H_
 
+#include <cmath>
+
+using std::sqrt;
+
 namespace gen { namespace common { namespace utils {
 
 template < class T >

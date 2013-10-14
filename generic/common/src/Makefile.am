@@ -5,4 +5,7 @@ INCLUDES =\
 
 noinst_LIBRARIES= libGenCommon.a
 
-libGenCommon_a_SOURCES = gCommonUtils.cpp 
+libGenCommon_a_SOURCES = \
+						gCommonUtils.cpp \
+						gBigInteger.cpp \
+						gString.cpp
