@@ -4,6 +4,7 @@
 namespace gen { namespace common { namespace defs {
 
 typedef unsigned long	u32_t; 
+typedef signed 	 long	s32_t; 
 
 }}}
 #endif //_COMMON_DEFS_H_

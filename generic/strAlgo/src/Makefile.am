@@ -5,4 +5,5 @@ INCLUDES =\
 
 noinst_LIBRARIES= libGenStringAlogo.a
 
-libGenStringAlogo_a_SOURCES = gSubstring.cpp 
+libGenStringAlogo_a_SOURCES = gSubstring.cpp \
+							  gStringPerm.cpp 

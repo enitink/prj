@@ -1,1 +1,1 @@
-SUBDIRS = cgi 
+SUBDIRS = cgi generic 
