@@ -10,7 +10,8 @@ namespace gen { namespace str { namespace stringPerm {
 Name				:	
 Description			:	
 Problem type 		:	
-Sol Explaination	:	
+Sol Explaination	:	Find out the permutations for the characters that can co
+						me before.
 *******************************************************************************/
 
 int gStringPerm::stringRank(const char* str)
@@ -48,7 +49,11 @@ int gStringPerm::stringRank(const char* str)
 
 	for ( i=0; i < lenStra; ++i )
 	{
-		
+		/*int t
+		if ( str[i] < 'a' )
+		int tResult = ;
+		for (
+		result += */
 	}
 	return result;
 }
