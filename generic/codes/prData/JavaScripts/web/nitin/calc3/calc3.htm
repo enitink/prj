@@ -1,0 +1,150 @@
+<html>
+
+<head><script LANGUAGE="JavaScript">
+
+<!--
+//Author: Michael Gudaitis
+//e-mail: sparrow@erols.com
+//You may use this script free of charge so long as
+//this copyright information stays intact.
+//copyright 1998
+
+function cala_day(form) {
+        
+        var nSwitch = 0
+        var nMonth = parseInt(form.month.value)
+        var nDay =  parseInt(form.day.value)
+        var nYear =  parseInt(form.year.value)
+        
+        if(!(nYear % 4) && (nMonth > 2)) {
+                nSwitch = 1
+        }               
+
+        var nDayOfWeek = cala_weekday(nMonth, nDay, nYear)
+        
+        if(nSwitch) {
+                nDayOfWeek++
+                nSwitch = 0
+        }
+        
+        day_display(form, nDayOfWeek)
+}
+
+function cala_weekday( x_nMonth, x_nDay, x_nYear) {
+
+        if(x_nMonth >= 3){      
+                x_nMonth -= 2
+        }
+        else {
+                x_nMonth += 10
+        }
+
+        if( (x_nMonth == 11) || (x_nMonth == 12) ){
+                x_nYear--
+        }
+
+        var nCentNum = parseInt(x_nYear / 100)
+        var nDYearNum = x_nYear % 100
+        
+        var nPart1 = parseInt(2.6 * x_nMonth - .2)
+        
+        var nZeller = (parseInt(nPart1 + x_nDay + nDYearNum + (nDYearNum / 4) + (nCentNum / 4) - 2 * nCentNum)) % 7
+        
+        if(nZeller < 0){
+                nZeller += 7
+        }
+        
+        return nZeller
+}
+
+function day_display(form, x_nDayOfWeek) {
+
+        if(x_nDayOfWeek == 0) {
+                form.birthday.value = "Saturday"
+                return
+        }
+        if(x_nDayOfWeek == 1) {
+                form.birthday.value = "Sunday"
+                return
+        }
+        if(x_nDayOfWeek == 2) {
+                form.birthday.value = "Monday"
+                return
+        }
+        if(x_nDayOfWeek == 3) {
+                form.birthday.value = "Tuesday"
+                return
+        }
+        if(x_nDayOfWeek == 4) {
+                form.birthday.value = "Wednesday"
+                return
+        }
+        if(x_nDayOfWeek == 5) {
+                form.birthday.value = "Thursday"
+                return
+        }
+        if(x_nDayOfWeek == 6) {
+                form.birthday.value = "Friday"
+                return
+        }
+
+        form.birthday.value = "Not a valid date."
+}
+//-->
+
+</script>
+
+<title>JavaFILE</title>
+<base target="leftframe">
+</head>
+
+<body BGCOLOR="#ffffff" link="#CC0033" vlink="#333399" alink="#FF0000" <!--content start-->
+
+<p align="center"><img src="http://www.javafile.com/images/banner.GIF"
+alt="banner.GIF (2826 bytes)"></p>
+
+<table WIDTH="96%" BORDER="0" CELLSPACING="5" CELLPADDING="5">
+  <tr>
+    <td WIDTH="100%">Ever wonder what day you were born on? Well, you can find out with this
+    neat little script. Simply type your bithdate in the algorithingie below, and it will tell
+    ya'...honest!<font FACE="ARIEL,HELVETICA" SIZE="-1"><p align="center"></font>Author: <a
+    href="mailto:sparrow@erols.com">Michael Gudaitis</a>&nbsp;&nbsp; <a
+    href="http://www.javafile.com/javascripts/clocks/calc3.zip">Download the Script</a><font
+    FACE="ARIEL,HELVETICA" SIZE="-1"></p>
+    <p>To use this algorithm, input your date of birth (MM/DD/YYYY), press &quot;ok&quot; and
+    then <i>boom</i> the day of the week in which you were born on appears. </p>
+    <form>
+      <div align="center"><center><table WIDTH="225" BORDER="1" ALIGN="CENTER">
+        <tr>
+          <td WIDTH="250" COLSPAN="2" ALIGN="center" bgcolor="#0000FF"></font><font SIZE="-1"
+          color="#FFFFFF" FACE="ARIEL,HELVETICA"><b>Zeller's Algorithm</b></font><font
+          FACE="ARIEL,HELVETICA" SIZE="-1"></td>
+        </tr>
+        <tr>
+          <td WIDTH="100" bgcolor="#FF0000"><font color="#FFFF00"><font SIZE="2"><b>Month:</b><input
+          TYPE="Text" NAME="month" SIZE="4"><br>
+          <br>
+          <b>Day:</b><input TYPE="Text" NAME="day" SIZE="4"><br>
+          <br>
+          <b>Year:</b><input TYPE="Text" NAME="year" SIZE="4"></font> </font></td>
+          <td WIDTH="125" ALIGN="center" bgcolor="#FF0000"><font color="#FFFF00"><br>
+          <font SIZE="2"><b>Example:</b></font> <br>
+          <font SIZE="2"><i><b>11-1-1970</b><br>
+          <b>Sunday</b></i><br>
+          <br>
+          <b>Your were born on a</b></font> <br>
+          <input TYPE="Text" NAME="birthday" SIZE="10"> </font></td>
+        </tr>
+        <tr>
+          <td COLSPAN="2" ALIGN="center" bgcolor="#0000FF"><input TYPE="button" VALUE="OK"
+          ONCLICK="cala_day(this.form)"><input TYPE="reset"></font></td>
+        </tr>
+      </table>
+      </center></div>
+    </form>
+    </td>
+  </tr>
+</table>
+<!--content stop-->
+</body>
+</html>

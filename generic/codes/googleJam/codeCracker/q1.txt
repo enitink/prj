@@ -1,0 +1,36 @@
+==============
+EASY PROBLEM 1
+==============
+
+For years, Ram has picked on his sisters Sheetal and Geeta, and now he is about to pay the price. The siblings' parents -- firm believers in the "I cut, you choose" method of division -- have died and have left instructions in their will about how their assets are to be divided. 
+
+The assets have been written down in a single long list. Ram has been given scissors and must carefully cut between two entries to divide the list into two non-empty sublists. Sheetal will then be given the scissors and will do the same to one of the sublists, leaving a total of three sublists. Geeta will then choose one of the sublists and will receive all the assests in that sublist. Next, Sheetal will choose between the two remaining sublists and will receive those assets. Finally, Ram will receive the assets on the last remaining sublist.
+
+Naturally, each person wants to maximize their own share, but, because of certain regrettable childhood incidents, Sheetal and Geeta will each try to punish Ram, as long as they can do so at no cost to themselves. For example, if Sheetal has two options that will both net her $1000, then she will always choose the option that will give Geeta more money and Ram less money. On the other hand, if Sheetal has two options that will give her different amounts of money, then she will always choose the option that will give herself the most money.
+As Ram raises the scissors to make the first cut, he wonders how much he is going to end up with. 
+
+Input:
+The input begins with the number t of test cases in a single line.In each of the next t lines 1st number will be n<=50 and there will be n numbers separated by a space each number in the list will be <= 1000 or >= 1 representing element of asset. 
+
+Output:
+For every test case print the total value of Ram's share, assuming that all parties have full knowledge of each other's strategies and make their decisions optimally.
+
+Sample Input:
+4
+4 50  90  10  100  
+3 5  5  5  
+9 1  1  1  1  1  1  1  1  1  
+9 1  2  3  4  5  6  7  8  9  
+
+Sample output:
+50
+5
+2
+10
+
+Hints: 
+For the first case If Ram cuts between the value 90 asset and the value 10 asset, or between the value 10 asset and the value 100 asset, then he will end up with nothing but the value 10 asset. By cutting between the value 50 asset and the value 90 asset, he will end up with the value 50 asset, while his sisters get a total value of 100 each (one gets the value 100 asset and the other gets the value 90 asset and the value 10 asset).
+In next set of assets (i.e. 5 5 5) With only two possible cuts, Sheetal can't find a way to punish Ram.
+
+
+NOTE: JAVA coders should use 'public class Codecracker', otherwise their codes WILL NOT COMPILE. Use the exact phrase

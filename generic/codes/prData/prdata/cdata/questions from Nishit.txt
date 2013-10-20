@@ -1,0 +1,39 @@
+Hi Nitin,
+
+Lo aaj kuch C ke programs banane ke liye de raha hoon try karo agar nahin bana to bolna solution de doonga.
+
+1.   Write a program to sort the given N numbers using a single loop.
+
+2.   Develop a function called convert(int no, int base) which prints the number in the base of base. Hojayega!!
+
+3.   Write a program to print the second largest element in the unsorted array. (Note- the array not to be in the sorted order and you don't have to sort the nos.) Hojayega!
+
+4.   Write a program to find the sum of the 2 nos which contain more than 20 digits. Hojayega.
+
+5.   Write a program to print your name on the screen in that program you don't have to use the semicolon( ; ) and the double quotes( "  " ).
+
+
+Try to solve these ones.
+I think these are the some new programs that you haven't see these.
+
+Also tell me this program is for what
+
+# include<stdio.h>
+# include<conio.h>
+void main( )
+{
+      int n,i=2;
+      printf ( " Enter the no :-  " ) ;
+      scanf ( "%d", &n );
+      while ( n % i ) i++ ;
+      if ( n == i ) printf ( " Yes " );
+      else printf ( " No " );
+}
+
+I think i surely get some answers from you.
+
+Best of Luck
+
+Take Care 
+-Bye
+-Nishit

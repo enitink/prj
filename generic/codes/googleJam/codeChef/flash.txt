@@ -1,0 +1,153 @@
+[root@myhost etc]# pacman -S flashplugin
+resolving dependencies...
+looking for inter-conflicts...
+
+Targets (53): lib32-glibc-2.12.2-1  lib32-libice-1.0.7-1
+              lib32-util-linux-ng-2.18-3  lib32-libsm-1.2.0-1
+              lib32-libxdmcp-1.1.0-1  lib32-libxau-1.0.6-2  lib32-libxcb-1.7-2
+              lib32-libx11-1.4.0-1  lib32-libxt-1.0.9-1  lib32-zlib-1.2.5-6
+              lib32-gcc-libs-4.5.2-4.2  lib32-pcre-8.10-3  lib32-expat-2.0.1-7
+              lib32-dbus-core-1.4.0-2  lib32-glib2-2.26.1-2  lib32-atk-1.32.0-1
+              lib32-libpng-1.4.5-1  lib32-libxrender-0.9.6-4
+              lib32-freetype2-2.4.4-1  lib32-fontconfig-2.8.0-3
+              lib32-pixman-0.20.0-1  lib32-cairo-1.10.0-3  lib32-libxft-2.2.0-1
+              lib32-pango-1.28.3-1  lib32-sqlite3-3.7.4-1
+              lib32-openssl-1.0.0.a-6  lib32-e2fsprogs-1.41.14-1
+              lib32-db-4.8.26-5  lib32-heimdal-1.3.3-3  lib32-ncurses-5.7-6
+              lib32-readline-6.1.002-3  lib32-libgpg-error-1.9-4
+              lib32-libgcrypt-1.4.6-3  lib32-gnutls-2.10.4-1
+              lib32-libjpeg-8.0.2-3  lib32-libtiff-3.9.4-3
+              lib32-gdk-pixbuf2-2.22.1-1  lib32-libcups-1.4.5-1
+              lib32-libxfixes-4.0.5-3  lib32-libxcursor-1.1.11-1
+              lib32-libxext-1.2.0-1  lib32-libxrandr-1.3.1-1
+              lib32-libxi-1.4.0-1  lib32-libxinerama-1.1.1-1
+              lib32-libxcomposite-0.4.3-1  lib32-libxdamage-1.1.3-3
+              lib32-gtk2-2.22.1-2  lib32-nspr-4.8.6-2  lib32-nss-3.12.8-1
+              lib32-curl-7.21.3-1  lib32-alsa-lib-1.0.23-4
+              nspluginwrapper-1.3.0-4  flashplugin-10.1.102.65-1
+
+Total Download Size:    22.22 MB
+Total Installed Size:   90.16 MB
+
+Proceed with installation? [Y/n] y
+:: Retrieving packages from multilib...
+ lib32-glibc-2.12.2...     2.4M  233.2K/s 00:00:11 [######################] 100%
+ lib32-libice-1.0.7...    59.0K  122.7K/s 00:00:00 [######################] 100%
+ lib32-util-linux-n...   133.0K  173.6K/s 00:00:01 [######################] 100%
+ lib32-libsm-1.2.0-...    19.4K   67.8K/s 00:00:00 [######################] 100%
+ lib32-libxdmcp-1.1...     7.6K   39.2K/s 00:00:00 [######################] 100%
+ lib32-libxau-1.0.6...     6.2K   45.2K/s 00:00:00 [######################] 100%
+ lib32-libxcb-1.7-2...   115.2K  150.0K/s 00:00:01 [######################] 100%
+ lib32-libx11-1.4.0...   533.4K  193.6K/s 00:00:03 [######################] 100%
+ lib32-libxt-1.0.9-...   137.1K  174.9K/s 00:00:01 [######################] 100%
+ lib32-zlib-1.2.5-6...    65.2K  132.2K/s 00:00:00 [######################] 100%
+ lib32-gcc-libs-4.5...  1233.9K  248.3K/s 00:00:05 [######################] 100%
+ lib32-pcre-8.10-3-...   134.3K  174.3K/s 00:00:01 [######################] 100%
+ lib32-expat-2.0.1-...   100.9K  159.1K/s 00:00:01 [######################] 100%
+ lib32-dbus-core-1....    89.6K  151.2K/s 00:00:01 [######################] 100%
+ lib32-glib2-2.26.1...  1288.8K  236.2K/s 00:00:05 [######################] 100%
+ lib32-atk-1.32.0-1...    34.4K   88.6K/s 00:00:00 [######################] 100%
+ lib32-libpng-1.4.5...   106.7K  163.2K/s 00:00:01 [######################] 100%
+ lib32-libxrender-0...    12.5K   80.2K/s 00:00:00 [######################] 100%
+ lib32-freetype2-2....   421.8K  221.0K/s 00:00:02 [######################] 100%
+ lib32-fontconfig-2...   109.5K  165.7K/s 00:00:01 [######################] 100%
+ lib32-pixman-0.20....   148.3K  179.9K/s 00:00:01 [######################] 100%
+ lib32-cairo-1.10.0...   315.5K  211.6K/s 00:00:01 [######################] 100%
+ lib32-libxft-2.2.0...    31.9K   83.9K/s 00:00:00 [######################] 100%
+ lib32-pango-1.28.3...   242.6K  145.8K/s 00:00:02 [######################] 100%
+ lib32-sqlite3-3.7....   264.8K  207.5K/s 00:00:01 [######################] 100%
+ lib32-openssl-1.0....  1025.9K  242.9K/s 00:00:04 [######################] 100%
+ lib32-e2fsprogs-1....   147.7K  181.9K/s 00:00:01 [######################] 100%
+ lib32-db-4.8.26-5-...  1072.5K  242.8K/s 00:00:04 [######################] 100%
+ lib32-heimdal-1.3....  1097.6K  244.5K/s 00:00:04 [######################] 100%
+ lib32-ncurses-5.7-...   341.2K  217.6K/s 00:00:02 [######################] 100%
+ lib32-readline-6.1...   164.0K  186.1K/s 00:00:01 [######################] 100%
+ lib32-libgpg-error...     4.7K  140.5K/s 00:00:00 [######################] 100%
+ lib32-libgcrypt-1....   257.4K  206.6K/s 00:00:01 [######################] 100%
+ lib32-gnutls-2.10....   467.6K  222.7K/s 00:00:02 [######################] 100%
+ lib32-libjpeg-8.0....   152.6K  176.1K/s 00:00:01 [######################] 100%
+ lib32-libtiff-3.9....   188.5K  192.3K/s 00:00:01 [######################] 100%
+ lib32-gdk-pixbuf2-...   126.5K  173.0K/s 00:00:01 [######################] 100%
+ lib32-libcups-1.4....   227.2K  200.7K/s 00:00:01 [######################] 100%
+ lib32-libxfixes-4....     5.7K   40.5K/s 00:00:00 [######################] 100%
+ lib32-libxcursor-1...    16.8K   63.7K/s 00:00:00 [######################] 100%
+ lib32-libxext-1.2....    21.0K   78.3K/s 00:00:00 [######################] 100%
+ lib32-libxrandr-1....    18.1K   67.8K/s 00:00:00 [######################] 100%
+ lib32-libxi-1.4.0-...    21.6K   74.6K/s 00:00:00 [######################] 100%
+ lib32-libxinerama-...     4.7K  163.9K/s 00:00:00 [######################] 100%
+ lib32-libxcomposit...     3.8K  189.6K/s 00:00:00 [######################] 100%
+ lib32-libxdamage-1...     3.4K  106.1K/s 00:00:00 [######################] 100%
+ lib32-gtk2-2.22.1-...  1772.2K  250.4K/s 00:00:07 [######################] 100%
+ lib32-nspr-4.8.6-2...   130.4K  171.2K/s 00:00:01 [######################] 100%
+ lib32-nss-3.12.8-1...   931.7K  235.9K/s 00:00:04 [######################] 100%
+ lib32-curl-7.21.3-...   192.7K  195.0K/s 00:00:01 [######################] 100%
+ lib32-alsa-lib-1.0...   254.0K  207.2K/s 00:00:01 [######################] 100%
+ nspluginwrapper-1....   126.2K  169.4K/s 00:00:01 [######################] 100%
+ flashplugin-10.1.1...     5.7M  252.3K/s 00:00:23 [######################] 100%
+checking package integrity...
+(53/53) checking for file conflicts                [######################] 100%
+( 1/53) installing lib32-glibc                     [######################] 100%
+( 2/53) installing lib32-libice                    [######################] 100%
+( 3/53) installing lib32-util-linux-ng             [######################] 100%
+( 4/53) installing lib32-libsm                     [######################] 100%
+( 5/53) installing lib32-libxdmcp                  [######################] 100%
+( 6/53) installing lib32-libxau                    [######################] 100%
+( 7/53) installing lib32-libxcb                    [######################] 100%
+( 8/53) installing lib32-libx11                    [######################] 100%
+( 9/53) installing lib32-libxt                     [######################] 100%
+(10/53) installing lib32-zlib                      [######################] 100%
+(11/53) installing lib32-gcc-libs                  [######################] 100%
+(12/53) installing lib32-pcre                      [######################] 100%
+(13/53) installing lib32-expat                     [######################] 100%
+(14/53) installing lib32-dbus-core                 [######################] 100%
+(15/53) installing lib32-glib2                     [######################] 100%
+(16/53) installing lib32-atk                       [######################] 100%
+(17/53) installing lib32-libpng                    [######################] 100%
+(18/53) installing lib32-libxrender                [######################] 100%
+(19/53) installing lib32-freetype2                 [######################] 100%
+(20/53) installing lib32-fontconfig                [######################] 100%
+(21/53) installing lib32-pixman                    [######################] 100%
+(22/53) installing lib32-cairo                     [######################] 100%
+(23/53) installing lib32-libxft                    [######################] 100%
+(24/53) installing lib32-pango                     [######################] 100%
+(25/53) installing lib32-sqlite3                   [######################] 100%
+(26/53) installing lib32-openssl                   [######################] 100%
+Optional dependencies for lib32-openssl
+    ca-certificates
+    perl
+    gcc-multilib
+(27/53) installing lib32-e2fsprogs                 [######################] 100%
+(28/53) installing lib32-db                        [######################] 100%
+(29/53) installing lib32-heimdal                   [######################] 100%
+(30/53) installing lib32-ncurses                   [######################] 100%
+(31/53) installing lib32-readline                  [######################] 100%
+(32/53) installing lib32-libgpg-error              [######################] 100%
+(33/53) installing lib32-libgcrypt                 [######################] 100%
+(34/53) installing lib32-gnutls                    [######################] 100%
+(35/53) installing lib32-libjpeg                   [######################] 100%
+(36/53) installing lib32-libtiff                   [######################] 100%
+(37/53) installing lib32-gdk-pixbuf2               [######################] 100%
+(38/53) installing lib32-libcups                   [######################] 100%
+(39/53) installing lib32-libxfixes                 [######################] 100%
+(40/53) installing lib32-libxcursor                [######################] 100%
+(41/53) installing lib32-libxext                   [######################] 100%
+(42/53) installing lib32-libxrandr                 [######################] 100%
+(43/53) installing lib32-libxi                     [######################] 100%
+(44/53) installing lib32-libxinerama               [######################] 100%
+(45/53) installing lib32-libxcomposite             [######################] 100%
+(46/53) installing lib32-libxdamage                [######################] 100%
+(47/53) installing lib32-gtk2                      [######################] 100%
+(48/53) installing lib32-nspr                      [######################] 100%
+(49/53) installing lib32-nss                       [######################] 100%
+(50/53) installing lib32-curl                      [######################] 100%
+(51/53) installing lib32-alsa-lib                  [######################] 100%
+(52/53) installing nspluginwrapper                 [######################] 100%
+warning: directory permissions differ on usr/lib/mozilla/
+filesystem: 700  package: 755
+(53/53) installing flashplugin                     [######################] 100%
+warning: directory permissions differ on usr/lib/mozilla/
+filesystem: 700  package: 755
+To use the flash player in firefox, you must set
+  dom.ipc.plugins.enabled
+to true in about:config. It will crash a lot otherwise.
+

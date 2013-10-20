@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int n(int i){
+	return (n <= 1)? 1 : n * (n - 1);
+}
+
+int main(){
+	int t, d;
+	scanf("%d",&t);
+	while(t){
+		scanf("%d",&d);
+		printf("%d",n(d));
+		--t;
+	}
+	return 0;
+}
