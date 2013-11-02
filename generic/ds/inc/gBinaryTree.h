@@ -136,7 +136,7 @@ void gBinaryTreeT<T>::printColSum()
 	bzero(pColSum, sizeof(s32_t) * (__leftWidth + __rightWidth + 1));
 
 	calColSum(__pRoot, pColSum, __leftWidth);
-	for ( u32_t i = 0; i <= (__leftWidth + __rightWidth) ; ++i)
+	for ( s32_t i = 0; i <= (__leftWidth + __rightWidth) ; ++i)
 	{
 		cout << "Col : " << (i + 1) << " : " << pColSum[i] << endl;
 	}
@@ -157,8 +157,8 @@ void gBinaryTreeT<T>::addNodeAsBST(T data)
 	else
 	{
 		gBinaryTreeNodeT <T>* root = __pRoot;
-		u32_t leftWidth = 0;
-		u32_t rightWidth = 0;
+		s32_t leftWidth = 0;
+		s32_t rightWidth = 0;
 	
 		while(true)
 		{

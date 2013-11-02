@@ -9,7 +9,7 @@ int main()
 	gHeap <int> maxHeap(MAX_HEAP, arr, 10);
 	gHeap <int> minHeap(MIN_HEAP, arr, 10);
 	
-	cout << endl << "descending order sort : ";
+	cout << "descending order sort : ";
 	while (maxHeap.empty())
 	{
 		cout << maxHeap.top() << " ";
@@ -45,5 +45,6 @@ int main()
 		iMinHeap.pop();
 	}
 	cout << endl;
+
 	return 0;
 }

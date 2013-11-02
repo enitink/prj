@@ -46,7 +46,8 @@ public:
 template < class T >
 bool gHeap<T>::createHeap()
 {
-	u32_t i, j, k;
+	u32_t i;
+	s32_t j, k;
 	switch (__heapType)
 	{
 	case MAX_HEAP:
