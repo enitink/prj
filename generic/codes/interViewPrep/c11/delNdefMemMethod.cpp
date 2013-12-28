@@ -17,7 +17,8 @@ public:
 };
 
 int A::num = 0;
-A* A::insTance = nullptr;
+A* A::insTance = 0;
+
 A* A::getA()
 {
 	if(num)

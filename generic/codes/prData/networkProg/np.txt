@@ -1,0 +1,88 @@
+Hello friends!!!
+
+This article is related to the Network Programming topic of our great syllb.. ;-)
+fortunately Chandru sir is teaching us this subject.. so atleast we can try some thing new!!
+don't know about you people I am really like the way he motivates us to do things... 
+just one simple request to him... "sir!! please don't use 'bullshit' word too much... " ;-)
+
+Now back to topic... Sir in class told us about "daytime server/client" program!! which is using 
+"unp.h" file.. which is a wrapper designed by the authors of Unix Network Programming Book!!
+they have included the source code of the "unp.h" in the book.. but after going through it.. I found..
+that it also uses some more headers files.. that is not given in the book!! So I searched net and
+have found this "unpv13e.tar.gz" it's a zipped file and it contains all the source and headers 
+related to the book.. as the book name suggest.. it has been written for Unix based system.. i.e. 
+GNU/Linux, BSD, Solaris etc. So you might not be able to use these codes in windowzzzzzzzzzz!!!
+
+If you want to try out the programs sir has taught us... you can follow the steps below!! after that
+it's your world.. think and write something great!! and share with us too!!
+
+Step 1 : Download the "unpv13e.tar.gz" file from the "files" section of this community.. you can find 
+it on the homepage of this community itself!
+
+Step 2 : On your linux system .. just right click on it.. and "extract" it!!!
+
+Step 3 : Open terminal.
+
+Step 4 : Go to the folder containing the extracted files .. by default the extracted folder name is
+'unpv13e'.
+
+Step 5 : After getting inside the 'unpv13e' folder issue the following commands one by one...
+	
+	a) ./configure
+
+	b) cd lib
+    	   make
+
+    	c) cd ../libfree
+    	   make
+
+The setting up procedure is now complete!!
+
+This particular source code also contains the "daytime server/client" example of the book inside the
+'intro' folder.....
+To try out.. if everything is working fine!!!
+
+Step 6: go to 'intro' folder using command on terminal:
+
+	cd intro
+
+Step 7: write command:to compile the server 
+
+	make daytimetcpsrv
+
+Step 8: Write command : to compile the client 
+
+	make daytimetcpcli
+
+Don't get confused.. "make" is something new.. but is doing.. what generally compilers, linkers, loaders 
+are intended to do!! So cheers.. just keep on doing... atleast first lay your hands on first example!!
+later on.. we will learn how to compile our own source code!!
+
+Step 9 : now we need to start the server : as it opens a port which is 13 so we will require adminstrative
+rights in Linux... that we cand do by issuing following command on the terminal:
+
+	sudo ./daytimetcpsrv
+
+This will start the server... 
+
+Step 10 : now while the server is running in one terminal.. open another terminal.. and issue the following
+command to see if the server started in the last command is working as intended or not....
+
+	./daytimetcpcli 127.0.0.1
+
+This will show output something like this :
+
+	Mon Aug 24 16:08:30 2009
+
+if your output is like this.. we have succefully configured and tried one of the example of the UNP book...
+cheers....
+
+To stop the server just use the key comination "ctrl + c" and the server will
+terminate/stop!!
+
+I don't know.. how many of you will be going through this article.. but.. anyone!! if liked it.. please do tell
+me... and any problem.. feel free to mail me.. Thankyou!!
+
+---
+Nitin Kumar
+MCA 5th Sem

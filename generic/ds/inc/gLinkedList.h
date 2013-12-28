@@ -1,128 +1,85 @@
-#include<iostream>
+#ifndef _LINKED_LIST_H_
+#define _LINKED_LIST_H_
 
-using std :: cin;
-using std :: cout;
-using std :: endl;
+namespace gen { namespace ds { namespace llNode {
 
-template <class T>
-class Stack{
-private :
-	T * NextAddress;
-	int top;		
-public :
-	Stack()	{
-		NextAddress = NULL;
-		top = -1;
-	}	
-	Stack(int Size)	{
-		top = -1;
-		NextAddress = new T[Size + 3];
-	}	
-	void Push_Data(T  Address) {
-		++top;
-		NextAddress[top] = Address;
-	}	
-	T Pop_Data() {
-		return (top == -1) ? NULL : NextAddress[top--];
-	}	
-	int Ret_Top() {
-		return top;
-	}
-};
-
-class LLNode {
+template < class T > 
+class gLLNode {
 private:
-	unsigned int p_data; 
-	LLNode * p_next;
+	T			__data;
+	gLLNode * 	__pNext;
 public:
-	LLNode() {
-		p_data = 0;    
-		p_next = NULL; 
-	}
-	LLNode(unsigned int data) {
-		p_data = data; 
-		p_next = NULL; 
-	}
-	unsigned int data(void) const {
-		return p_data;
-	}
-	LLNode* next(void) const {
-		return p_next;
-	}
-	void setdata(unsigned int data) {
-		p_data = data;
-	}
-	void setnext(LLNode* next) {
-		p_next = next;
-	}
+	gLLNode(void); 
+	gLLNode(const T data);
 
+	void setData(const T data);
+	T& getData()
+	void setNext(gLLNode* next);
+	gLLNode* getNext(void);
 };
 
-class LList
+template < class T >
+gLLNode<T>::gLLNode(void)
+	: __data(0)
+	, __pNext(NULL)
+{
+}
+
+template < class T >
+gLLNode<T>::gLLNode(const T data)
+	: __data(data)
+	, __pNext(NULL)
+{
+}
+
+template < class T >
+void gLLNode<T>::setData(const T data)
+{
+	__data = data;
+}
+
+template < class T >
+T& gLLNode<T>::getData(void)
+{
+	return __data;
+}
+
+template < class T >
+void gLLNode<T>::setNext(gLLNode* next)
+{
+	__pNext = next;
+}
+
+template < class T >
+gLLNode* gLLNode<T>::setNext(void)
+{
+	return __pNext;
+}
+
+template < class T >
+class gLList
 {
 private:
-	LLNode* p_first; 
+	gLLNode<T> *__pHead;
+	u32_t	 	__size;
 
+private:
+	void cleanUp();
 public:
-	LList()
-	{
-		p_first = NULL; 
-	}
-	~LList()
-	{
-		LLNode* current = p_first; 
-		LLNode* deleting;          
+	gLList();
+	~gLList();
+	
+	u32_t	size();	
+	void	clean();	
 
-		while(current != NULL) 
-		{
-			deleting = current;        
-			current = current->next(); 
-			delete deleting;           
-		}
-	}
-	
-	int LList_Size(void)
-	{
-		int i = 0;
-		LLNode * temp = p_first;     
-		
-		while(temp->next() != NULL)
-		{
-			++i;
-			temp = temp->next();
-		}
-		
-		return i + 1;
-	}
-	
-	LLNode* first(void) const 
-	{
-		return p_first;
-	}
-	
-	void additem(unsigned int data) 
-	{
-		if(!p_first)            
-			p_first = new LLNode(data); 
-		else                          
-		{
-			LLNode* current = p_first;     
-			
-			while(current->next() != NULL) 
-				current = current->next();   
-			
-			LLNode* prev = current;        
-			current = new LLNode(data);    
-			prev->setnext(current);        
-		}
-	}
+	void push_back(T&); 
 	
 	int deleteitem(unsigned int data) 
 	{
 		if(p_first == NULL) 
 			return 0;   
 	
-		LLNode* current = p_first; 
+		gLLNode* current = p_first; 
 	
 		if(current->data() == data)
 		{
@@ -140,7 +97,7 @@ public:
 		if(current->next() != NULL)
 		{
 			int temp;
-			LLNode* prev = current;
+			gLLNode* prev = current;
 			current = current->next();
 			prev->setnext(current->next());
 			temp = p_first->data();
@@ -151,9 +108,9 @@ public:
 		return 0; 
 	}
 	
-	LLNode* search(unsigned int data) 
+	gLLNode* search(unsigned int data) 
 	{
-		LLNode* current = p_first;
+		gLLNode* current = p_first;
 		
 		while(current != NULL)    
 		{
@@ -166,13 +123,13 @@ public:
 	
 	bool insertitem(unsigned int prevdata, unsigned int data) 
 	{
-		LLNode* prev = search(prevdata); 
+		gLLNode* prev = search(prevdata); 
 		
 		if(prev == NULL)                 
 			return 0;                
 	
-		LLNode* next = prev->next();     
-		LLNode* current = new LLNode(data);
+		gLLNode* next = prev->next();     
+		gLLNode* current = new gLLNode(data);
 		prev->setnext(current);            
 		current->setnext(next);            
 		
@@ -180,14 +137,14 @@ public:
 	}
 	void insertfirst(unsigned int data) 
 	{
-		LLNode* current = new LLNode(data); 
+		gLLNode* current = new gLLNode(data); 
 		current->setnext(p_first);          
 		p_first = current;                  
 	}
 	
 	void display_data(void)
 	{
-		LLNode* Temp = p_first;
+		gLLNode* Temp = p_first;
 		
 		cout << endl << "Contents of Nodes : ";
 		while(Temp != NULL)
@@ -199,7 +156,7 @@ public:
 	
 	void display_Address()
 	{
-		LLNode* Temp = p_first;
+		gLLNode* Temp = p_first;
 		
 		cout << endl << "Address of Link List Nodes : ";
 		while(Temp != NULL)
@@ -218,8 +175,8 @@ public:
 				cout << endl << "Can't Reverse just One";
 			else
 			{
-				Stack <LLNode *> LStack(LList_Size() + 1);
-				LLNode * temp = p_first;     
+				Stack <gLLNode *> LStack(gLList_Size() + 1);
+				gLLNode * temp = p_first;     
 				
 				while(temp->next() != NULL)
 				{
@@ -240,3 +197,57 @@ public:
 			}
 	}
 };
+
+template < class T >
+void gLList<T>::cleanUp(void)
+{
+	gLLNode* current = __pHead; 
+	gLLNode* deleting;          
+
+	while(current != NULL) 
+	{
+		deleting = current;        
+		current = current->getNext(); 
+		delete deleting;           
+	}
+
+	__size = 0;
+}
+
+template < class T>
+gLList<T>::gLList()
+	: __pHead(NULL)
+	, __size(0)
+{
+}
+
+template <class T>
+gLList<T>::~gLList()
+{
+	cleanUp();
+}
+
+template < class T >
+void gLList<T>::push_back(T& data)
+{
+	if(!__pHead)
+	{ 
+		__pHead = new gLLNode(data);
+		++__size;
+	}
+	else                          
+	{
+		gLLNode* current = __pHead;     
+		
+		while(current->getNext() != NULL) 
+			current = current->getNext();   
+		
+		gLLNode* prev = current;        
+		current = new gLLNode(data);    
+		prev->setNext(current);        
+	}
+}
+
+}}} //gen::ds::llNode namespace
+
+#endif
