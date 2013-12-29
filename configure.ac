@@ -17,6 +17,7 @@ AC_OUTPUT(Makefile \
 	  generic/Makefile \
 	  generic/common/Makefile \
 	  generic/common/src/Makefile \
+	  generic/common/test/Makefile \
 	  generic/sort/Makefile \
 	  generic/sort/src/Makefile \
 	  generic/ds/Makefile \

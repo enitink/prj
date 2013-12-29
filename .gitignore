@@ -58,3 +58,4 @@ generic/common/src/*.o
 generic/common/src/*.a
 generic/ds/src/gDoublyLListMain
 generic/ds/src/gBinaryTreeMain
+generic/common/test/.deps

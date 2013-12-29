@@ -2,21 +2,21 @@
 #define _COMMON_BIG_INT_
 
 #include <iostream>
+#include <gCommonDefs.h>
 
-#define SIZE 100 //more configuration required
-
-using namespace std;
+using std::ostream;
+using std::istream;
+using namespace gen::common::defs;
 
 namespace gen { namespace common { namespace bigInt {
 
 class gBigInteger
 {
-private:
-	int data[SIZE];
-	int len;
 public:
 	gBigInteger();
 	gBigInteger(const gBigInteger& );
+
+	~gBigInteger();
 
 	gBigInteger& operator=(const gBigInteger& );
 	const gBigInteger& operator+=(const gBigInteger& );
@@ -27,6 +27,15 @@ public:
 	
 	friend ostream &operator<<( ostream &, const gBigInteger& );
 	friend istream &operator>>( istream &, gBigInteger& );
+
+private:
+	void copyData(const gBigInteger& );
+	bool findLen(const char* );
+	void reset();
+private:
+	u4_t* 	__pData;
+	int 	__len;
+	bool	__positive;
 };
 
 }}}
