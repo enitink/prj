@@ -1,6 +1,7 @@
 bin_PROGRAMS = gBigIntegerMain
 AM_CXXFLAGS = $(INTI_CFLAGS) \
-				-Wall
+				-Wall \
+				-g 
 
 INCLUDES = \
 	-I../inc \

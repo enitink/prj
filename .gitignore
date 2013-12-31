@@ -59,3 +59,6 @@ generic/common/src/*.a
 generic/ds/src/gDoublyLListMain
 generic/ds/src/gBinaryTreeMain
 generic/common/test/.deps
+generic/common/test/gBigIntegerMain
+generic/common/test/*.o
+generic/common/test/*.a

@@ -1,9 +1,6 @@
 #include <cstring>
 #include <gBigInteger.h>
 
-using std::cin;
-using std::cout;
-
 namespace gen { namespace common { namespace bigInt {
 
 gBigInteger::gBigInteger()
@@ -12,7 +9,28 @@ gBigInteger::gBigInteger()
 	,	__positive(true)
 {}
 
+gBigInteger::gBigInteger(int size)
+	: 	__pData(NULL)
+	,	__len(0)
+	,	__positive(true)
+{
+	try{
+		__pData = new u4_t[size];
+		__len = size;
+		__positive = true;
+	}
+	catch(...)
+	{
+		if (__pData)
+			delete [] __pData;
+		__len = 0;
+	}
+}
+
 gBigInteger::gBigInteger(const gBigInteger& rhs)
+	: 	__pData(NULL)
+	,	__len(0)
+	,	__positive(true)
 {
 	copyData(rhs);
 }
@@ -33,9 +51,61 @@ gBigInteger& gBigInteger::operator=(const gBigInteger& rhs)
 
 const gBigInteger& gBigInteger::operator+=(const gBigInteger& rhs)
 {
+	*this = *this + rhs;
+	return *this;
 }
 
-gBigInteger& gBigInteger::operator+(const gBigInteger& rhs)
+gBigInteger gBigInteger::operator+(const gBigInteger& rhs)
+{
+	if (__positive == rhs.__positive)
+	{
+		gBigInteger t1_g;
+		gBigInteger t2_s;
+		
+		if ( __len > rhs.__len )
+		{
+			t1_g = *this;
+			t2_s = rhs;
+		}
+		else
+		{
+			t1_g = rhs;
+			t2_s = *this;
+		}
+		
+		int l_diff = t1_g.__len - t2_s.__len;
+		int i = 0;
+		u32_t s = 0;
+		u32_t r = 0;	
+		for (i = t2_s.__len - 1; i >= 0; --i)
+		{
+			s = (t1_g.__pData[i + l_diff].n + t2_s.__pData[i].n + r) % 10;
+			r = (t1_g.__pData[i + l_diff].n + t2_s.__pData[i].n + r) / 10;
+			t1_g.__pData[i + l_diff].n = s;
+		}
+		for (i = t1_g.__len - t2_s.__len - 1; i >= 0; --i)
+		{
+			s = (t1_g.__pData[i].n + r) % 10;
+			r = (t1_g.__pData[i].n + r) / 10;
+			t1_g.__pData[i].n = s;
+		}
+		
+		if ( (i == -1) && (r) )
+		{
+			gBigInteger tt_ob(t1_g.__len + 1);
+			memcpy(&tt_ob.__pData[1], t1_g.__pData, sizeof(u4_t) * t1_g.__len);
+			tt_ob.__pData[0].n = r;
+			t1_g = tt_ob;
+		}
+		t1_g.__positive = __positive;
+		return t1_g;
+	}
+
+	gBigInteger t1_g;
+	return t1_g;
+}
+
+gBigInteger gBigInteger::operator-(const gBigInteger& )
 {
 }
 
@@ -61,7 +131,7 @@ istream & operator>>( istream & input, gBigInteger& s)
 	try {
 		chStr = new char[1000];
 		memset(chStr, 0, 1000);
-		cin >> chStr;
+		input >> chStr;
 
 		s.reset();
 	
@@ -87,6 +157,7 @@ istream & operator>>( istream & input, gBigInteger& s)
 
 void gBigInteger::copyData(const gBigInteger& rhs)
 {
+	reset();
 	__len = rhs.__len;
 	__positive = rhs.__positive;
 
@@ -131,10 +202,8 @@ bool gBigInteger::findLen(const char* ptr)
 void gBigInteger::reset()
 {
 	if ( __pData )
-	{
 		delete [] __pData;
-		__pData = NULL;
-	}
+	__pData = NULL;
 	__len = 0;
 	__positive = true;
 }

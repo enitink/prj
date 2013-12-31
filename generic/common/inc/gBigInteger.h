@@ -20,8 +20,9 @@ public:
 
 	gBigInteger& operator=(const gBigInteger& );
 	const gBigInteger& operator+=(const gBigInteger& );
-	gBigInteger& operator+(const gBigInteger& );
-	
+	gBigInteger operator+(const gBigInteger& );
+
+	gBigInteger operator-(const gBigInteger& );	
 	const gBigInteger& operator*=(const gBigInteger& );
 	gBigInteger& operator*(const gBigInteger& );
 	
@@ -29,6 +30,7 @@ public:
 	friend istream &operator>>( istream &, gBigInteger& );
 
 private:
+	explicit gBigInteger(int size);
 	void copyData(const gBigInteger& );
 	bool findLen(const char* );
 	void reset();
