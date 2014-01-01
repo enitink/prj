@@ -24,4 +24,11 @@ AC_OUTPUT(Makefile \
 	  generic/ds/src/Makefile \
 	  generic/strAlgo/Makefile \
 	  generic/strAlgo/src/Makefile \
-	  generic/strAlgo/test/Makefile)
+	  generic/strAlgo/test/Makefile \
+	  generic/ds/test/Makefile \
+	  generic/ipc/Makefile \
+	  generic/ipc/src/Makefile \
+	  generic/ipc/test/Makefile \
+	  generic/thread/Makefile \
+	  generic/thread/src/Makefile \
+	  generic/thread/test/Makefile)

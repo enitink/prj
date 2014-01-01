@@ -157,9 +157,10 @@ istream & operator>>( istream & input, gBigInteger& s)
 
 void gBigInteger::copyData(const gBigInteger& rhs)
 {
-	reset();
 	__len = rhs.__len;
 	__positive = rhs.__positive;
+
+	u4_t* t__pData = __pData;
 
 	try
 	{
@@ -167,9 +168,10 @@ void gBigInteger::copyData(const gBigInteger& rhs)
 		memcpy(__pData, rhs.__pData, __len * sizeof(int));
 	} catch(...)
 	{
-		if (__pData != NULL)
-			delete [] __pData;
+		__pData = t__pData;
 	}
+		
+	delete [] t__pData;
 }
 
 bool gBigInteger::findLen(const char* ptr)

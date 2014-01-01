@@ -62,3 +62,13 @@ generic/common/test/.deps
 generic/common/test/gBigIntegerMain
 generic/common/test/*.o
 generic/common/test/*.a
+generic/thread/src/*.a
+generic/thread/src/*.o
+generic/ipc/src/*.o
+generic/ipc/test/*.o
+generic/ipc/test/Makefile
+generic/ipc/test/Makefile.in
+generic/ipc/src/Makefile
+generic/ipc/src/Makefile.in
+generic/ipc/Makefile
+generic/ipc/Makefile.in
