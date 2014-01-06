@@ -2,6 +2,7 @@
 #define _COMMON_UTILS_H_
 
 #include <cmath>
+#include <errno.h>
 
 using std::sqrt;
 
@@ -36,6 +37,41 @@ bool isPrime(long int n){
             return false;
     }
     return true;
+}
+
+const char* getErrMsg(int errsv)
+{
+	switch (errsv)
+	{
+	case EACCES:
+		return "EACCES";
+		break;
+    case EEXIST:
+		return "EEXIST";
+		break;
+    case EINVAL:
+		return "EINVAL";
+		break;
+	case EMFILE:
+		return "EMFILE";
+		break;
+    case ENAMETOOLONG:
+		return "ENAMETOOLONG";
+		break;
+    case ENFILE:
+		return "ENFILE";
+		break;
+    case ENOENT:
+		return "ENONENT";
+		break;
+    case ENOMEM:
+		return "ENOMEM";
+		break;
+    case ENOSPC:
+		return "ENOSPC";
+		break;
+	}
+
 }
 
 }}} //gen::common::utils namespace ends

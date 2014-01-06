@@ -1,1 +1,1 @@
-SUBDIRS = common ds sort strAlgo ipc 
+SUBDIRS = common ds sort strAlgo process 
