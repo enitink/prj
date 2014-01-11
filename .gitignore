@@ -20,6 +20,10 @@ generic/common/test/gBigIntegerMain
 generic/process/inc/temp
 generic/process/test/messageConsumer
 generic/thread_UU/test/threadMain
+generic/codes/prData/cppdata/inheritence
+generic/codes/prData/cppdata/msgQ
+generic/codes/prData/cppdata/msgQClose
+generic/codes/prData/cppdata/msgQWrite
 cgi/main/Makefile
 cgi/main/src/Makefile
 cgi/Makefile
