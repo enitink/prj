@@ -24,6 +24,8 @@ generic/codes/prData/cppdata/inheritence
 generic/codes/prData/cppdata/msgQ
 generic/codes/prData/cppdata/msgQClose
 generic/codes/prData/cppdata/msgQWrite
+generic/codes/prData/cppdata/msgQThread
+generic/codes/prData/cppdata/t
 cgi/main/Makefile
 cgi/main/src/Makefile
 cgi/Makefile

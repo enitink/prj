@@ -2,27 +2,25 @@
 #define __COMMON_THREAD__
 
 #include <pthread.h>
-#include <gThreadImpl.h>
 
 namespace gen { namespace common { namespace process { namespace thread {
-
-using namespace gen::common::process::threadImpl;
 
 class gThread
 {
 public:
-					gThread(gThreadImpl*);
+					gThread();
 	virtual			~gThread();
+	bool			init();
 
 protected:
 	pthread_t		self();
+	virtual void*	run() = 0;
+
 protected:
 	pthread_t		_threadId;
-	gThreadImpl* 	_pThreadImpl;
 
 private:
 	static	void* 	threadInterface(void* arg);
-	void*			run();
 	bool			start();
 	bool			join();
 	bool			detach();

@@ -8,5 +8,8 @@ typedef struct
 typedef unsigned long	u32_t; 
 typedef signed 	 long	s32_t; 
 
+#define handle_error(msg) \
+		do { perror(msg); exit(EXIT_FAILURE); } while (0)
+
 }}}
 #endif //_COMMON_DEFS_H_

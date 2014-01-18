@@ -3,29 +3,25 @@
 
 using namespace std;
 
-
 namespace gen { namespace common { namespace process { namespace thread {
 
-
-void* gThread::threadInterface(void* arg)
+void* gThread::threadInterface(void* gArg)
 {
-	return ((gThread*)arg)->run();
+	gThread* arg = (gThread*)gArg;
+	return (arg->run());
 }
 
-gThread::gThread(gThreadImpl* ptr) : _pThreadImpl(ptr)
-{
-	start();
-	join();	
-}
+gThread::gThread() {}
 
 gThread::~gThread()
 {
 	detach();
 }
 
-void* gThread::run()
+bool gThread::init()
 {
-	return _pThreadImpl->runChild();
+	start();
+	join();
 }
 
 bool gThread::start()

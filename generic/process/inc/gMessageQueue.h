@@ -1,20 +1,25 @@
 #ifndef __COMMON_MESSAGE_QUEUE__
 #define __COMMON_MESSAGE_QUEUE__
 
-//#include <fcntl.h>           /* For O_* constants */
-//#include <sys/stat.h>        /* For mode constants */
 #include <mqueue.h>
+
+#include <gThread.h>
 #include <gMessageConsumer.h>
 
 namespace gen { namespace common { namespace process { namespace messageQ {
 
-using gen::common::process::messageConsumer::gMessageConsumer;
+using namespace gen::common::process::thread;
+using namespace gen::common::process::messageConsumer;
 
 class gMessageQueue
+	:	public gThread
 {
 public:
 	gMessageQueue(gMessageConsumer*);
 	~gMessageQueue();
+
+protected:
+	virtual void*   run();
 
 private:
 	static void thFunc(union sigval sv);

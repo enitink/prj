@@ -12,11 +12,10 @@ class HelloMsgQ : public gMessageConsumer
 {
 private:
 	gMessageQueue* __pMessageQ;
-	int count;
 public:
-	HelloMsgQ() : count(0) { __pMessageQ = new gMessageQueue(this); }
+	HelloMsgQ() { __pMessageQ = new gMessageQueue(this); __pMessageQ->init(); }
 	~HelloMsgQ() { delete __pMessageQ; }
-	virtual void* onMessage(char* ptr){ cout << "inside HelloMsgQ" << ptr << endl;  ++count; if (count == 4) return NULL; }
+	virtual void* onMessage(char* ptr){ cout << ptr << endl;  ++count; return NULL; }
 	virtual const char* messageQueueName(){ return "/HelloMsgQ"; }
 };
 

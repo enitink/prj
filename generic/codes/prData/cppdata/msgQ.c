@@ -76,7 +76,7 @@ main(int argc, char *argv[])
 	
 	printf(" %d \n", mqdes);
 	arg = argv[1];
-	addNotify(mqdes);
+	addNotify();
 
-    pause();    /* Process will be terminated by thread function */
+   pause();    /* Process will be terminated by thread function */
 }
