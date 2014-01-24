@@ -15,13 +15,15 @@ gThread::gThread() {}
 
 gThread::~gThread()
 {
-	detach();
+//	detach();
+//	join();
 }
 
 bool gThread::init()
 {
 	start();
 	join();
+	return true;
 }
 
 bool gThread::start()

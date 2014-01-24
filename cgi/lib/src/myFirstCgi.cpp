@@ -5,13 +5,9 @@ using namespace std;
 
 namespace cgi { namespace lib {
 
-MyFirstCgi::MyFirstCgi()
-{
-}
+MyFirstCgi::MyFirstCgi() { }
 
-MyFirstCgi::~MyFirstCgi()
-{
-}
+MyFirstCgi::~MyFirstCgi() { }
 
 bool MyFirstCgi::prepareRspString()
 {

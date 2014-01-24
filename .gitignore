@@ -11,6 +11,7 @@ configure
 depcomp
 install-sh
 missing
+tags
 cgi/main/src/cgiInterface
 generic/ds/src/gHeapMain
 generic/strAlgo/test/gTestString
@@ -26,6 +27,8 @@ generic/codes/prData/cppdata/msgQClose
 generic/codes/prData/cppdata/msgQWrite
 generic/codes/prData/cppdata/msgQThread
 generic/codes/prData/cppdata/t
+generic/codes/prData/cppdata/d
+generic/codes/prData/cppdata/u
 cgi/main/Makefile
 cgi/main/src/Makefile
 cgi/Makefile
@@ -115,3 +118,4 @@ generic/common/test/.deps
 generic/common/src/.deps
 generic/thread_UU/test/.deps
 generic/thread_UU/src/.deps
+
