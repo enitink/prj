@@ -2,7 +2,7 @@ AM_CXXFLAGS = $(INTI_CFLAGS)
 
 INCLUDES =\
 	-I../inc \
-	-I../../common/inc
+	-I../../inc 
 
 noinst_LIBRARIES= libGenProcess.a
 

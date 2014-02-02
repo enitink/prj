@@ -5,7 +5,7 @@ AM_CXXFLAGS = $(INTI_CFLAGS) \
 
 INCLUDES = \
 	-I../lib/inc \
-	-I../../common/inc
+	-I../inc
 
 
 messageConsumer_SOURCES = \
