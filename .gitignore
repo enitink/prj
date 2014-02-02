@@ -85,7 +85,7 @@ generic/thread_UU/Makefile.in
 generic/thread_UU/test/Makefile.in
 generic/thread_UU/src/Makefile.in
 cgi/lib/src/libCgi.a
-generic/process/src/libGenProcess.a
+generic/process/lib/src/libGenProcess.a
 generic/sort/src/libGenSort.a
 generic/strAlgo/src/libGenStringAlogo.a
 generic/common/src/libGenCommon.a
@@ -93,8 +93,8 @@ generic/thread_UU/src/libGenThread.a
 cgi/main/src/cgimain.o
 cgi/lib/src/myFirstCgi.o
 generic/process/test/messageConsumer.o
-generic/process/src/gThread.o
-generic/process/src/gMessageQueue.o
+generic/process/lib/src/gThread.o
+generic/process/lib/src/gMessageQueue.o
 generic/ds/src/gHeapMain.o
 generic/ds/src/gBinaryTreeMain.o
 generic/ds/src/gDoublyLListMain.o
@@ -110,7 +110,7 @@ generic/thread_UU/src/gThread.o
 cgi/main/src/.deps
 cgi/lib/src/.deps
 generic/process/test/.deps
-generic/process/src/.deps
+generic/process/lib/src/.deps
 generic/ds/src/.deps
 generic/strAlgo/test/.deps
 generic/strAlgo/src/.deps

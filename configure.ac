@@ -27,5 +27,6 @@ AC_OUTPUT(Makefile \
 	  generic/strAlgo/test/Makefile \
 	  generic/ds/test/Makefile \
 	  generic/process/Makefile \
-	  generic/process/src/Makefile \
+	  generic/process/lib/Makefile \
+	  generic/process/lib/src/Makefile \
 	  generic/process/test/Makefile) 

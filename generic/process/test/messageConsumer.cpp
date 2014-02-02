@@ -5,7 +5,7 @@ using namespace std;
 #include <gMessageConsumer.h>
 #include <gMessageQueue.h>
 
-using namespace gen::common::process::messageQ; 
+using namespace gen::common::ipc::messageQ; 
 using namespace gen::common::process::messageConsumer;
 
 class HelloMsgQ : public gMessageConsumer
