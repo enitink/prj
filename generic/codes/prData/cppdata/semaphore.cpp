@@ -18,7 +18,7 @@ sem_t sem;
 #define handle_error(msg) \
 		do { perror(msg); exit(EXIT_FAILURE); } while (0)
 
-		static void
+static void
 handler(int sig)
 {
 		write(STDOUT_FILENO, "sem_post() from handler\n", 24);
@@ -28,7 +28,7 @@ handler(int sig)
 		}
 }
 
-		int
+int
 main(int argc, char *argv[])
 {
 		struct sigaction sa;
@@ -41,7 +41,7 @@ main(int argc, char *argv[])
 				exit(EXIT_FAILURE);
 		}
 
-		if (sem_init(&sem, 0, 0) == -1)
+		if (sem_init(&sem, 0, 1) == -1)
 				handle_error("sem_init");
 
 		/* Establish SIGALRM handler; set alarm timer using argv[1] */
@@ -62,7 +62,7 @@ main(int argc, char *argv[])
 
 		ts.tv_sec += atoi(argv[2]);
 
-		printf("main() about to call sem_timedwait()\n");
+		printf("main() about to call sem_timedwait() first time\n");
 		while ((s = sem_timedwait(&sem, &ts)) == -1 && errno == EINTR)
 				continue;       /* Restart if interrupted by handler */
 
@@ -70,11 +70,26 @@ main(int argc, char *argv[])
 
 		if (s == -1) {
 				if (errno == ETIMEDOUT)
-						printf("sem_timedwait() timed out\n");
+						printf("sem_timedwait() first timed out\n");
 				else
-						perror("sem_timedwait");
+						perror("sem_timedwait first\n");
 		} else
-				printf("sem_timedwait() succeeded\n");
+				printf("sem_timedwait() second succeeded\n");
+	
+		printf("main() about to call sem_timedwait() second time\n");
+		while ((s = sem_timedwait(&sem, &ts)) == -1 && errno == EINTR)
+				continue;       /* Restart if interrupted by handler */
+
+		/* Check what happened */
+
+		if (s == -1) {
+				if (errno == ETIMEDOUT)
+						printf("sem_timedwait() second timed out\n");
+				else
+						perror("sem_timedwait second\n");
+		} else
+				printf("sem_timedwait() second succeeded\n");
+
 
 		exit((s == 0) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
