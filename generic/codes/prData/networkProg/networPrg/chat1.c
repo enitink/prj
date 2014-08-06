@@ -48,10 +48,10 @@ void server(void){
 		
 		while ((n = read(connfd, recvline, MAXLINE)) > 0) {
 			recvline[n] = 0;
-			printf("Friend : ");
+			printf("\nFriend : ");
 			if (fputs(recvline, stdout) == EOF)
 				printf("fputs error");
-			printf("\n");
+			printf("\nME: ");	
 		}
 		if (n < 0)
 			printf("read error");
@@ -84,7 +84,6 @@ void client(char *argv, char *arg){
 	}
 
 	snprintf(buff, sizeof(buff), "%s", arg);
-	
 	if((n = write(sockfd, buff, strlen(buff))) < 0){
 		printf("write error");
 		exit(1);
@@ -111,6 +110,7 @@ main(int argc, char **argv){
 	
 	printf("if you think.. you have to say anything.... then say buddy... \n");
 	while(1){
+		printf("\nME: ");	
 		fgets(buff, MAXLINE, stdin);
 		client("127.0.0.1", buff);
 	}

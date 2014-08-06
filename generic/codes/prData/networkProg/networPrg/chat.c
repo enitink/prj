@@ -49,10 +49,10 @@ void server(void){
 		
 		while ((n = read(connfd, recvline, MAXLINE)) > 0) {
 			recvline[n] = 0;
-			printf("Friend : ");
+			printf("\nFriend : ");
 			if (fputs(recvline, stdout) == EOF)
 				printf("fputs error");
-			printf("\n");
+			printf("\nME: ");	
 		}
 		if (n < 0)
 			printf("read error");
@@ -112,6 +112,7 @@ main(int argc, char **argv){
 	
 	printf("if you think.. you have to say anything.... then say buddy... \n");
 	while(1){
+		printf("\nME: ");	
 		fgets(buff, MAXLINE, stdin);
 		client(argv[1] , buff);
 	}
