@@ -1,5 +1,6 @@
 //try it later on.. am doing a mistake of not considering for the same slot..
 
+
 #include <stdio.h>
 #include <algorithm>
 
