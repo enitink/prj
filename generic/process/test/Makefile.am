@@ -3,7 +3,7 @@ AM_CXXFLAGS = $(INTI_CFLAGS) \
 				-Wall \
 				-g 
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I../lib/inc \
 	-I../inc
 
@@ -13,4 +13,5 @@ messageConsumer_SOURCES = \
 messageConsumer_LDADD = $(INTI_LIBS) \
 				../lib/src/libGenProcess.a \
 				../../common/src/libGenCommon.a \
-				-lrt
+				-lrt \
+				-lpthread

@@ -13,6 +13,8 @@ install-sh
 missing
 tags
 *.log
+compile
+configure.scan
 cgi/main/src/cgiInterface
 generic/ds/src/gHeapMain
 generic/strAlgo/test/gTestString

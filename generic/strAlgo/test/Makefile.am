@@ -2,7 +2,7 @@ bin_PROGRAMS = gTestString
 AM_CXXFLAGS = $(INTI_CFLAGS) \
 				-Wall
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I../inc \
 	-I../../common/inc
 

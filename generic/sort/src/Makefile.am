@@ -1,6 +1,6 @@
 AM_CXXFLAGS = $(INTI_CFLAGS)
 
-INCLUDES =\
+AM_CPPFLAGS =\
 	-I../inc
 
 noinst_LIBRARIES= libGenSort.a

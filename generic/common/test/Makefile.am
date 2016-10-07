@@ -3,7 +3,7 @@ AM_CXXFLAGS = $(INTI_CFLAGS) \
 				-Wall \
 				-g 
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I../inc \
 	-I../../common/inc
 
