@@ -10,9 +10,9 @@ int main()
 
 	cin >> ob >> ob1;
 
-	cout << ob + ob1 << endl;
-	cout << ob << " " << ob1;
-	ob += ob1;
-	cout << ob << " " << ob1;
+	cout << ob << " + " << ob1  << " = " << ob + ob1 << endl;
+	cout << ob << " * " << ob1  << " = " << ob * ob1 << endl;
+	//ob += ob1;
+	//cout << ob << " " << ob1 << endl;
 	return 0;
 }

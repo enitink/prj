@@ -113,8 +113,51 @@ const gBigInteger& gBigInteger::operator*=(const gBigInteger& rhs)
 {
 }
 
-gBigInteger& gBigInteger::operator*(const gBigInteger& rhs)
+
+//handling only positive integer for now
+gBigInteger gBigInteger::operator*(const gBigInteger& rhs)
 {
+	for (int i = 0; i < rhs.__len; ++i)
+		*this += rhs;
+/*	
+	gBigInteger t1_g;
+	gBigInteger t2_s;
+	gBigInteger res(this->__len + rhs.__len + 1);
+	int i,j;
+
+	if ( __len > rhs.__len )
+	{
+		t1_g = *this;
+		t2_s = rhs;
+	}
+	else
+	{
+		t1_g = rhs;
+		t2_s = *this;
+	}
+	for (i = 0; i < t2_s.__len ; ++i)
+	{
+		gBigInteger lres(this->__len + rhs.__len + 1);
+		int m;
+		int r;
+		for(j = t1_g.__len - 1; j >= 0; --j)
+		{
+			m = ( (t1_g.__pData[j].n * t2_s.__pData[i].n) + r) % 10;
+			r = ( (t1_g.__pData[j].n * t2_s.__pData[i].n) + r) / 10;
+			if (lres.__len)
+				memmove(&lres.__pData[lres.__len], &lres.__pData[lres.__len-1], sizeof(u4_t) * lres.__len);
+			++lres.__len;
+			lres.__pData[0].n = m;
+		}
+		if (lres.__len)
+		{
+			memmove(&lres.__pData[lres.__len], &lres.__pData[lres.__len-1], sizeof(u4_t) * lres.__len);
+			++lres.__len;
+			lres.__pData[0].n = 0;
+		}
+		res += lres;
+	}
+*/
 }
 
 ostream & operator<<( ostream & output, const gBigInteger& s)
@@ -165,7 +208,7 @@ void gBigInteger::copyData(const gBigInteger& rhs)
 	try
 	{
 		__pData = new u4_t[__len];
-		memcpy(__pData, rhs.__pData, __len * sizeof(int));
+		memcpy(__pData, rhs.__pData, __len * sizeof(u4_t));
 	} catch(...)
 	{
 		__pData = t__pData;

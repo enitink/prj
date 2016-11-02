@@ -24,7 +24,7 @@ public:
 
 	gBigInteger operator-(const gBigInteger& );	
 	const gBigInteger& operator*=(const gBigInteger& );
-	gBigInteger& operator*(const gBigInteger& );
+	gBigInteger operator*(const gBigInteger& );
 	
 	friend ostream &operator<<( ostream &, const gBigInteger& );
 	friend istream &operator>>( istream &, gBigInteger& );
