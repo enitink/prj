@@ -38,3 +38,4 @@ generic/codes/prData/cppdata/u
 *.o
 *.deps
 *.out
+.vs
