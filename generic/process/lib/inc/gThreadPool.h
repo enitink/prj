@@ -1,15 +1,15 @@
-#ifndef __COMMON_THREAD__
-#define __COMMON_THREAD__
+#ifndef __COMMON_THREAD_POOL_
+#define __COMMON_THREAD_POOL_
 
 #include <pthread.h>
 
 namespace gen { namespace common { namespace process { namespace thread {
 
-class gThread
+class gThreadPool
 {
 public:
-				gThread();
-	virtual			~gThread();
+				gThreadPool();
+	virtual			~gThreadPool();
 	bool			init();
 
 protected:
@@ -28,4 +28,4 @@ private:
 
 }}}}
 
-#endif //__COMMON_THREAD__
+#endif //__COMMON_THREAD_POOL_

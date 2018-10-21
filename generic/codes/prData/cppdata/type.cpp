@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 			}
 		else
 		{
-			cout << endl << "Specified file not fount";
-			exit(0);
+			cout << endl << "Specified file not found";
+			return 0;
 		}
 		in.close();
 	}
