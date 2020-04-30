@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp"
+    },
+    "workbench.colorTheme": "Default Light+",
+    "workbench.preferredDarkColorTheme": "Abyss",
+    "workbench.sideBar.location": "right",
+    "editor.fontSize": 20,
+    "window.zoomLevel": 1
+}
