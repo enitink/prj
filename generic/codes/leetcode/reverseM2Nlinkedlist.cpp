@@ -12,44 +12,6 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
-public:
-    ListNode* reverseBetween(ListNode* head, int m, int n) {
-        if (head == nullptr)
-            return nullptr;
-        ListNode* prevNode;
-        ListNode* thead = head;
-        int tm = m;
-        while(--m && head != nullptr)
-        {
-            prevNode = head;
-            head = head->next;
-        }
-        if (head == nullptr)
-            return head;
-
-        ListNode* retnode;
-        helper(head, &retnode, n-tm);
-        prevNode->next = retnode;
-        
-        return thead;
-    }
-private:
-    ListNode* helper(ListNode* head, ListNode** retnode, int n)
-    {
-        std::cout << std::endl << n;
-        if ( (1 > n) || (head->next == nullptr) )
-        {
-            *retnode = head;
-            return head;
-        }
-
-        ListNode* lnode = helper(head->next, retnode, --n);
-        lnode->next = head;
-        return head;
-    }
-};
-
 void PrintLinkedList(ListNode* head)
 {
     std::cout << std::endl << "LinkedList : ";
@@ -78,6 +40,74 @@ ListNode* MakeLinkedList(int* array, int size)
     return head;
 }
 
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
+        if (head == nullptr)
+            return nullptr;
+        ListNode* preNodes = head;
+        ListNode* postNodes;
+
+        ListNode* thead = head;
+        int tm = m;
+        n = n - m;
+        while((--m > 0) && head != nullptr)
+        {
+            preNodes = head;
+            head = head->next;
+        }
+        if (head == nullptr)
+            return head;
+        postNodes = head;
+        while((--n >= 0) && postNodes != nullptr)
+            postNodes = postNodes->next;
+
+        if (postNodes != nullptr)
+        {
+            ListNode* tnode = postNodes;
+            postNodes = postNodes->next;
+            tnode->next = nullptr;
+            
+        }
+
+        ListNode* retnode = reverseList(head);
+        if (preNodes != head)
+        {
+            preNodes->next = retnode;
+            head->next = postNodes;
+        }
+        else
+        {
+            thead = retnode;
+            head->next = postNodes;
+        }
+        
+        
+        return thead;
+    }
+private:
+    ListNode* reverseList(ListNode* head) {
+        if (head == nullptr)
+            return nullptr;
+        ListNode* retnode;
+        helper(head, &retnode);
+        head->next = nullptr;
+        return retnode;
+    }
+
+    ListNode* helper(ListNode* head, ListNode** retnode)
+    {
+        if (head->next == nullptr)
+        {
+            *retnode = head;
+            return head;
+        }
+        ListNode* lnode = helper(head->next, retnode);
+        lnode->next = head;
+        return head;
+    }
+};
+
 int main()
 {
     Solution ob;
@@ -89,46 +119,46 @@ int main()
         head = ob.reverseBetween(head, 2, 4);
         PrintLinkedList(head);
     }
-    // std::cout << std::endl;
-    // {
-    //     int array[] = {1,2,1};
-    //     ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
-    //     PrintLinkedList(head);
-    //     head = ob.reverseBetween(head, 1, 2);
-    //     PrintLinkedList(head);
-    // }
-    // std::cout << std::endl;
-    // {
-    //     int array[] = {1,2,2,1};
-    //     ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
-    //     PrintLinkedList(head);
-    //     head = ob.reverseBetween(head, 1, 2);
-    //     PrintLinkedList(head);
-    // }
-    // std::cout << std::endl;
-    // {
-    //     int array[] = {1,3,1,2,1};
-    //     ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
-    //     PrintLinkedList(head);
-    //     head = ob.reverseBetween(head, 1, 2);
-    //     PrintLinkedList(head);
-    // }
-    // std::cout << std::endl;
-    // {
-    //     int array[] = {1};
-    //     ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
-    //     PrintLinkedList(head);
-    //     head = ob.reverseBetween(head, 1, 2);
-    //     PrintLinkedList(head);
-    // }
-    // std::cout << std::endl;
-    // {
-    //     int array[] = {1,2};
-    //     ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
-    //     PrintLinkedList(head);
-    //     head = ob.reverseBetween(head, 1, 2);
-    //     PrintLinkedList(head);
-    // }
+    std::cout << std::endl;
+    {
+        int array[] = {1,2,3};
+        ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
+        PrintLinkedList(head);
+        head = ob.reverseBetween(head, 1, 2);
+        PrintLinkedList(head);
+    }
+    std::cout << std::endl;
+    {
+        int array[] = {1,2,3,4};
+        ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
+        PrintLinkedList(head);
+        head = ob.reverseBetween(head, 1, 4);
+        PrintLinkedList(head);
+    }
+    std::cout << std::endl;
+    {
+        int array[] = {1,2,3,4,5};
+        ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
+        PrintLinkedList(head);
+        head = ob.reverseBetween(head, 4, 5);
+        PrintLinkedList(head);
+    }
+    std::cout << std::endl;
+    {
+        int array[] = {1};
+        ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
+        PrintLinkedList(head);
+        head = ob.reverseBetween(head, 1, 1);
+        PrintLinkedList(head);
+    }
+    std::cout << std::endl;
+    {
+        int array[] = {1,2};
+        ListNode* head = MakeLinkedList(array, sizeof(array)/sizeof(int));
+        PrintLinkedList(head);
+        head = ob.reverseBetween(head, 1, 1);
+        PrintLinkedList(head);
+    }
 
     return 0;
 }
