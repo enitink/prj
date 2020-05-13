@@ -52,7 +52,7 @@ public:
         {
             while(head && st.empty() == false)
             {
-                ListNode* st.top()
+                ListNode* lhead = st.top();
             }
         }
         return head;
