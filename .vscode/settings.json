@@ -51,7 +51,8 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "condition_variable": "cpp"
     },
     "workbench.colorTheme": "Default Light+",
     "workbench.preferredDarkColorTheme": "Abyss",
