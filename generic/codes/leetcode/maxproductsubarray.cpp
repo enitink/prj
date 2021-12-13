@@ -1,10 +1,10 @@
-/*************************************************************************************************
+/*************************************SOLVED*******************************************************
 152. Maximum Product Subarray
 
-Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and return the product.
+Given an integer array nums, find a contiguous non-empty subarray within the array that has the
+largest product, and return the product.
 It is guaranteed that the answer will fit in a 32-bit integer.
 A subarray is a contiguous subsequence of the array.
- 
 
 Example 1:
 
@@ -24,10 +24,9 @@ Constraints:
 -10 <= nums[i] <= 10
 The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
-*************************************************************************************************/
+**************************************************************************************************/
 #include <iostream>
 #include <vector>
-#include <limits>
 
 using namespace std;
 
@@ -36,14 +35,26 @@ public:
     int maxProduct(vector<int>& nums) {
         vector<int>::const_iterator iter = nums.begin();
         vector<int>::const_iterator eiter = nums.end();
-        int lproduct = *iter;
         int result = *iter;
         ++iter;
+        vector<int> products;
+        products.push_back(result);
+
         for ( ; iter != eiter; ++iter)
         {
-            lproduct *= (*iter);
-            result = (result < lproduct) ? result : lproduct;
+            vector<int>::iterator liter = products.begin();
+            vector<int>::iterator leiter = products.end();
+
+            for ( ; liter != leiter; ++liter)
+            {
+                (*liter) *= *iter;
+                result = (result < (*liter)) ? (*liter) : result;
+            }
+
+            result = (result < (*iter)) ? (*iter) : result;
+            products.push_back(*iter);
         }
+        return result;
     }
 };
 
@@ -56,6 +67,22 @@ int main()
         int i = 0;
         vector<int> nums;
         for( ; i<4; ++i)
+            nums.push_back(arr[i]);
+        cout << ob.maxProduct(nums) << endl;
+    }
+    {
+        int arr[] = {-2,0,-1};
+        int i = 0;
+        vector<int> nums;
+        for( ; i<3; ++i)
+            nums.push_back(arr[i]);
+        cout << ob.maxProduct(nums) << endl;
+    }
+    {
+        int arr[] = {2,3,-2,4,-1};
+        int i = 0;
+        vector<int> nums;
+        for( ; i<5; ++i)
             nums.push_back(arr[i]);
         cout << ob.maxProduct(nums) << endl;
     }
