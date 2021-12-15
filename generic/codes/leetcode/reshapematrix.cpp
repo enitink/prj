@@ -1,4 +1,4 @@
-/**************************************************************************************************
+/************************************SOLVED*****************************************************
 566. Reshape the Matrix
 
 In MATLAB, there is a handy function called reshape which can reshape an m x n matrix into a new one with a different size r x c keeping its original data.
@@ -18,7 +18,7 @@ Example 2:
 
 Input: mat = [[1,2],[3,4]], r = 2, c = 4
 Output: [[1,2],[3,4]]
- 
+
 
 Constraints:
 
@@ -34,13 +34,11 @@ n == mat[i].length
 
 using namespace std;
 
-class Solution {
-private:
-    void mapper(int mr, int mc, int r, int c, int& mapr, int& mapc)
-    { 
-    }
+class Solution
+{
 public:
-    vector<vector<int> > matrixReshape(vector<vector<int> >& mat, int r, int c) {
+    vector<vector<int> > matrixReshape(vector<vector<int> > &mat, int r, int c)
+    {
         int mr = mat.size();
         int mc = 0;
         if (mr)
@@ -48,10 +46,21 @@ public:
         else
             return mat;
 
-        if ((r*c) != (mr*mc))
+        if ((r * c) != (mr * mc))
             return mat;
-        
-        return mat;
+
+        vector<vector<int> > result;
+        result.resize(r);
+        int i = 0;
+        for (; i < r; ++i)
+            result[i].resize(c);
+
+        for (i = 0; i < (mr * mc); ++i)
+        {
+            result[i / c][i % c] = mat[i / mc][i % mc];
+        }
+
+        return result;
     }
 };
 
@@ -64,8 +73,10 @@ int main()
         mat.resize(2);
         mat[0].resize(2);
         mat[1].resize(2);
-        mat[0][0] = 1; mat[0][1] = 2;
-        mat[1][0] = 3; mat[1][1] = 4;
+        mat[0][0] = 1;
+        mat[0][1] = 2;
+        mat[1][0] = 3;
+        mat[1][1] = 4;
         vector<vector<int> > result = ob.matrixReshape(mat, 1, 4);
     }
 }

@@ -1,4 +1,4 @@
-/**************************************************************************************************
+/************************************SOLVED******************************************************
  * Coin Change 2
  * You are given an integer array coins representing coins of different denominations and an integer
  *  amount representing a total amount of money. Return the number of combinations that make up that
@@ -79,10 +79,10 @@ int main()
     Solution ob;
     
     {
-        int coins[] = {1,2,5};
+        int coins[] = {1,5};
         int i = 0;
         vector<int> nums;
-        for (; i < 3; ++i)
+        for (; i < 2; ++i)
             nums.push_back(coins[i]);
         cout << ob.change(5, nums) << endl;
     }
