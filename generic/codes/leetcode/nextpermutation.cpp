@@ -1,4 +1,4 @@
-/**************************************************************************************************
+/*******************************************************************************
 31. Next Permutation
 
 Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
@@ -32,11 +32,12 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 100
 
-Solution : Using permcombination, try to judge which number Kth position it belongs
-to, then find out K+1, but catch is the numbers is not unique so it can't follow the same.
+Solution : Using permcombination, try to judge which number Kth position it
+belongs to, then find out K+1, but catch is the numbers is not unique so
+it  can't follow the same.
 
 The solution which worked : https://redquark.org/leetcode/0031-next-permutation/
-**************************************************************************************************/
+*******************************************************************************/
 
 
 #include <iostream>
@@ -56,9 +57,9 @@ public:
             if (nums[i] > nums[i-1])
             {
                 index = i - 1;
+                break;
             }
         }
-        int pos = 0;
         if (-1 != index )
         {
             i = numsize - 1;
@@ -66,16 +67,14 @@ public:
             {
                 if (nums[i] > nums[index])
                 {
-                    pos = i;
                     int temp = nums[i];
-                    nums[i] = nums[pos];
-                    nums[pos] = temp;
+                    nums[i] = nums[index];
+                    nums[index] = temp;
+                    break;
                 }
             }
         }
-        
-        cout << index;
-        sort(nums.begin() + (index + 1), nums.end());
+        sort(nums.begin() + (index+1), nums.end());
     }
 };
 
