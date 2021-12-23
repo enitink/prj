@@ -43,3 +43,4 @@ generic/codes/prData/eclipseWS/firstTest/.settings/language.settings.xml
 generic/codes/prData/cppdata/.vscode
 generic/codes/leetcode/DesignStrategy.txt
 a.out.dSYM/Contents/Info.plist
+.editorconfig
