@@ -29,6 +29,10 @@ Constraints:
 
 0 <= s.length <= 5 * 104
 s consists of English letters, digits, symbols and spaces.
+
+Solution : Sliding window, whenever we find repeating character, we move our
+window one ahead of the last occurance and continue further to see if length has
+increased.
 *******************************************************************************/
 
 #include <iostream>
@@ -61,7 +65,7 @@ int main()
     cout << ob.lengthOfLongestSubstring("bbbbb") << endl;
     cout << ob.lengthOfLongestSubstring("pwwkew") << endl;
     cout << ob.lengthOfLongestSubstring("aabaaabpwwkew") << endl;
-    cout << ob.lengthOfLongestSubstring("ckilbkd") << endl;
+    cout << ob.lengthOfLongestSubstring("ckilbkdefgh") << endl;
 
     return 0;
 }

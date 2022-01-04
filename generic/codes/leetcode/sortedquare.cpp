@@ -1,4 +1,4 @@
-/************************************SOLVED**********************************************
+/********************************SOLVED****************************************
 977. Squares of a Sorted Array
 
 Given an integer array nums sorted in non-decreasing order, return an array of the squares
