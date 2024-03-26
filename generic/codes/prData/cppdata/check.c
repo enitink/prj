@@ -64,7 +64,7 @@ void Qu60_2006()
 		printf("%d",++*p);
 }
 
-void main()
+int main()
 {
 	printf("\nQu74_2006 : ");
 	Qu74_2006();
@@ -81,5 +81,7 @@ void main()
 	printf("\nQu60_2006 : ");
 	Qu60_2006();
 	printf("\n");
+
+	return -1;
 } 
 

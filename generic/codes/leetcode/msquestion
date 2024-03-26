@@ -1,0 +1,6 @@
+MS question : find the max number of pot holes that can be filled based on paths taken between two lanes.. . represents smooth and x represents pot holes
+
+Lane 1 : x . . x . . .
+Lan2 2 : . . . . . . x
+         1 2 3 4 5 6 7
+Ans : 3 .. we can go L2 (1,2,3,4,5,6) -> change to  L1 (6, 7) - So that leave L1 (1, 4) and L2 (6) to get filled. 
