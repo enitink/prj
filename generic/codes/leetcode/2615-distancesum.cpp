@@ -26,16 +26,20 @@ public:
         map<int, vector<int> >::const_iterator eitr = valmap.end();
         for( ; itr != eitr; ++itr)
         {
-            const vector<int>& lv = itr->second;
+            vector<int> lv = itr->second;
             int lvlen = lv.size();
-            for(i=0; i<lvlen; ++i)
+            long long total = 0;
+            for(i=1; i<lvlen; ++i)
             {
-                for(j=0; j<lvlen; ++j)
-                {
-                    if (i == j)
-                        continue;
-                   result[lv[i]] += abs(lv[j] - lv[i]);
-                }
+                total += (lv[i] - lv[0]);
+            }
+            result[lv[0]] = total;
+            for(i=1; i<lvlen; ++i)
+            {
+                long long dist = lv[i] - lv[i - 1];
+                total += dist * i;
+                total -= dist * (lvlen - i);
+                result[lv[i]] = total;
             }
         }
         return result;
@@ -49,6 +53,17 @@ int main()
     {
         int arr[] = {1,3,1,1,2};
         vector<int> nums(arr, arr+5);
+        int i = 0;
+        vector<long long> result = ob.distance(nums);
+        int rlen = result.size();
+        for(i=0; i<rlen; ++i)
+            cout << result[i] << " ";
+        cout << endl;
+    }
+
+    {
+        int arr[] = {1,3,1,1,2,5,1};
+        vector<int> nums(arr, arr+7);
         int i = 0;
         vector<long long> result = ob.distance(nums);
         int rlen = result.size();
