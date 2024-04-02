@@ -6,6 +6,11 @@
 
 using namespace std;
 
+
+// Both the solution works, generates the same set of valid parenthesis set, but leetcode doesn't accepts first one.
+// so the second one works. First one invloves around building from bottom to top.. 1 set, 2 set, 3 set etc.. 
+// second one is recursive, where we keep on going into different paths, add opening brackets and closed brackets based on 
+// logic that number of closing brackets can always be equal or less then the  open brackets.
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {

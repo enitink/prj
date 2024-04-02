@@ -4,6 +4,9 @@
 
 using namespace std;
 
+// Use stack to keep track of the last open bracket. 
+// if the stack top doesn't matches the closing type bracket return false.
+
 class Solution {
 public:
     bool isOpenBracket(char c)

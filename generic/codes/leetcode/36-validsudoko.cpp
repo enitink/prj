@@ -3,6 +3,11 @@
 
 using namespace std;
 
+// It's a map problem, just we need to find out how to track. 9 map for row, 9 map for column and 9 for 3x3 ones
+// Row and column is easy.. as row and column can be used as the which one we are tracking, but for 3x3 , the map to look into
+// can be cacluated by i/3 and j/3 .. grouping 3 by 3. And the thing to keep in mind, this problem only is looking for looking
+// into what's present in the input, possibly the sudoko given might not be solvable.
+
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char> >& board) {
