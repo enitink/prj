@@ -26,6 +26,13 @@ public:
 
 class Solution {
 public:
+    // 1. Sort the cars based on their position in descending order.
+    // 2. Calculate the time taken by each car to reach the target.
+    // 3. If the time taken by the car behind the current car is less than the current car, 
+    // then the car behind will not be able to catch up with the current car, so it becomes a different fleet.
+    // 4. If the time taken by the car behind the current car is more than the current car,
+    // then the car behind will be able to catch up with the current car, this one becoes fleet wit the car in front.
+           
     int carFleet(int target, vector<int>& position, vector<int>& speed) {
         int splen = speed.size(), i = 0;
         vector<PositionSpeedData> spdata;
@@ -55,11 +62,8 @@ int main()
     Solution ob;
 
     {
-        int tar[] = {10,8,0,5,3};
-        vector<int> target(tar, tar+5);
-        int sp[] = {2,4,1,1,3};
-        vector<int> speed(sp, sp+5);
-        
+        vector<int> target={10,8,0,5,3};
+        vector<int> speed={2,4,1,1,3};   
         cout << ob.carFleet(12, target, speed) << endl;
     }
     {
