@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -7,10 +8,24 @@ class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         vector<int> result;
+        deque<int> posq;
+
         int n = nums.size(), i = 0;
         for ( ;i<n; ++i)
         {
-
+            while (!posq.empty() && nums[i] > nums[posq.back()])
+            {
+                posq.pop_back();
+            }
+            posq.push_back(i);
+            if (i-posq.front() >= k)
+            {
+                posq.pop_front();
+            }
+            if (i+1>=k)
+            {
+                result.push_back(nums[posq.front()]);
+            }
         }
         return result;
     }

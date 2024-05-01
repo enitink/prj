@@ -40,12 +40,14 @@ ListNode* MakeLinkedList(int* array, int size)
 
 class Solution {
 public:
-    void reorderList(ListNode* head) {
+     void reorderList(ListNode* head) {
         if (head == nullptr)
             return;
+
         ListNode *slptr = head;
         ListNode *fptr = head;
         std::queue<ListNode*> qu;
+
         while((fptr) && (fptr->next))
         {
             fptr = fptr->next->next;
@@ -58,29 +60,41 @@ public:
             st.push(slptr);
             slptr = slptr->next;
         }
-        fptr = qu.front();
-        qu.pop();
-        while(true)
+        fptr = nullptr;
+        while(!qu.empty())
         {
+            if (fptr == nullptr)
+            {
+                fptr = qu.front();
+                qu.pop();
+            }
+            else
+            {
+                fptr->next = qu.front();
+                qu.pop();
+                fptr = fptr->next;
+            }
+            
             slptr = st.top();
             st.pop();
-            ListNode* tptr = fptr->next;
+
             fptr->next = slptr;
-            slptr->next = tptr;
-            fptr = tptr;
-            if (qu.empty() == false)
-                qu.pop();
-            if (st.empty())
+            slptr->next = nullptr;
+            fptr = fptr->next;
+        }
+        if (!st.empty())
+        {
+            if (fptr == nullptr)
             {
-                while(qu.empty() == false)
-                {    
-                    slptr = qu.front();
-                    qu.pop();
-                    fptr->next = slptr;
-                    fptr = fptr->next;
-                }
+                fptr = st.top();
+                st.pop();
                 fptr->next = nullptr;
-                break;
+            }
+            else
+            {
+                fptr->next = st.top();
+                st.pop();
+                fptr->next->next = nullptr;
             }
         }
         return;
@@ -93,15 +107,42 @@ int main()
     {
         int array[] = {1,2,3,4};
         ListNode* head= MakeLinkedList(array, sizeof(array)/sizeof(int));
-        PrintLinkedList(head);
         ob.reorderList(head);
         PrintLinkedList(head);
     }
 
-    {
+   {
         int array[] = {1,2,3,4,5};
         ListNode* head= MakeLinkedList(array, sizeof(array)/sizeof(int));
+        std::cout << std::endl;
+        ob.reorderList(head);
         PrintLinkedList(head);
+    }
+    {
+        int array[] = {1};
+        ListNode* head= MakeLinkedList(array, sizeof(array)/sizeof(int));
+        std::cout << std::endl;
+        ob.reorderList(head);
+        PrintLinkedList(head);
+    }
+    {
+        int array[] = {1,2};
+        ListNode* head= MakeLinkedList(array, sizeof(array)/sizeof(int));
+        std::cout << std::endl;
+        ob.reorderList(head);
+        PrintLinkedList(head);
+    }
+    {
+        int array[] = {1,2,3};
+        ListNode* head= MakeLinkedList(array, sizeof(array)/sizeof(int));
+        std::cout << std::endl;
+        ob.reorderList(head);
+        PrintLinkedList(head);
+    }
+    {
+        int array[] = {1,2,3,4,5,6,7,8,9,10};
+        ListNode* head= MakeLinkedList(array, sizeof(array)/sizeof(int));
+        std::cout << std::endl;
         ob.reorderList(head);
         PrintLinkedList(head);
     }
