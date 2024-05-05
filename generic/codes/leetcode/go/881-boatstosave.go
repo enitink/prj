@@ -15,9 +15,3 @@ func numRescueBoats(people []int, limit int) int {
 	}
 	return boats
 }
-
-func main() {
-	people := []int{3, 2, 2, 1}
-	limit := 3
-	println(numRescueBoats(people, limit))
-}
