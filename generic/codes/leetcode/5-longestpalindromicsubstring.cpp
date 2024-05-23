@@ -21,8 +21,6 @@ public:
 
     string longestPalindrome(string s) {
         int len = s.length();
-        if (0 == len)
-            return "";
         int start = 0;
         int maxlen = 0;
 

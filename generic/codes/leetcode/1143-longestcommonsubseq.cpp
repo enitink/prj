@@ -51,8 +51,8 @@ public:
                 memoize[i][j] = -1;
         
         int result =  helper(text1, text2,
-                         0, text1.size() - 1,
-                         0, text2.size() - 1 );
+                        0, text1.size() - 1,
+                        0, text2.size() - 1 );
 
         return result;
     }
@@ -76,9 +76,9 @@ private:
         else
         {
             int lresult =
-                     helper(text1, text2, t1st + 1, t1end, t2st, t2end);
+                helper(text1, text2, t1st + 1, t1end, t2st, t2end);
             int rresult =
-                     helper(text1, text2, t1st, t1end, t2st + 1, t2end);
+                helper(text1, text2, t1st, t1end, t2st + 1, t2end);
             result = (lresult > rresult) ? lresult : rresult;
         }
         memoize[t1st][t2st] = result;
