@@ -46,3 +46,7 @@ a.out.dSYM/Contents/Info.plist
 .editorconfig
 .vscode
 *.dSYM
+GrpcFileReader/bin
+GrpcFileReader/obj
+Test/bin
+Test/obj
