@@ -5,13 +5,10 @@ WORKDIR /source
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY GrpcFileReader/*.csproj ./GrpcFileReader/
-COPY Test/*.csproj ./Test/
-
 RUN dotnet restore
 
 # copy everything else and build app
 COPY GrpcFileReader/. ./GrpcFileReader/
-COPY Test/. ./Test/
 WORKDIR /source/GrpcFileReader
 RUN dotnet publish -c release -o /app --no-restore
 
