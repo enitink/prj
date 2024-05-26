@@ -37,8 +37,3 @@ storage_context = StorageContext.from_defaults(vector_store=vector_store)
 index = VectorStoreIndex.from_documents(
     documents, storage_context=storage_context
 )
-
-# create a query engine and query
-query_engine = index.as_query_engine()
-response = query_engine.query("What is the most important security policy?")
-print(response)

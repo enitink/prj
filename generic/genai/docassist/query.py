@@ -1,10 +1,12 @@
 import chromadb
+from fastapi import FastAPI
 from llama_index.core import (Settings, StorageContext, VectorStoreIndex,
                               get_response_synthesizer)
 from llama_index.core.memory import ChatMemoryBuffer
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.ollama import Ollama
 from llama_index.vector_stores.chroma import ChromaVectorStore
+from pydantic import BaseModel
 
 #logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 #logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stderr))
@@ -44,6 +46,7 @@ chat_engine = index.as_chat_engine(
     ),
 )
 
+"""
 #query_engine = index.as_query_engine()
 while True:
     text_input = input("User: ")
@@ -51,3 +54,19 @@ while True:
         break
     response = chat_engine.chat(text_input)
     print(f"Agent: {response}")
+"""
+
+
+app = FastAPI()
+
+class UserInput(BaseModel):
+    text: str
+
+@app.post("/chat")
+async def chat(user_input: UserInput):
+    #query_engine = index.as_query_engine()
+    text_input = user_input.text
+    if text_input == "exit":
+        return {"Agent": "Goodbye!"}
+    response = chat_engine.chat(text_input)
+    return {"Agent": response}
