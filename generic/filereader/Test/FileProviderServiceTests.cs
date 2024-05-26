@@ -7,11 +7,13 @@ public class FileProviderServiceTests
 {
     private readonly Mock<ILogger<FileProviderService>> _mockLogger;
     private readonly FileProviderService _fileProviderService;
+    private string _testFolderPath;
 
     public FileProviderServiceTests()
     {
         _mockLogger = new Mock<ILogger<FileProviderService>>();
         _fileProviderService = new FileProviderService(_mockLogger.Object);
+        _testFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Data");
     }
 
     [Fact]
@@ -129,6 +131,36 @@ public class FileProviderServiceTests
             Assert.Equal(tempFile.Content[0], result);
             Assert.Equal(tempFile.Content[3], result1);
         }
+    }
+
+    [Fact]
+    public void ReadFileNames_NoFilesInDirectory_ThrowsFileNotFoundException()
+    {
+        // Arrange
+        Directory.CreateDirectory(_testFolderPath);
+        Directory.EnumerateFiles(_testFolderPath).ToList().ForEach(f => File.Delete(f));
+
+        // Act & Assert
+        var exception = Assert.Throws<FileNotFoundException>(() => _fileProviderService.ReadFileNames());
+        Assert.Equal("No files found in the directory", exception.Message);
+    }
+
+    [Fact]
+    public void ReadFileNames_FilesInDirectory_ReturnsFileNames()
+    {
+        // Arrange
+        Directory.CreateDirectory(_testFolderPath);
+        var testFile1 = "test1.txt";
+        var testFile2 = "test2.txt";
+        File.Create(Path.Combine(_testFolderPath, testFile1)).Dispose();
+        File.Create(Path.Combine(_testFolderPath, testFile2)).Dispose();
+
+        // Act
+        var fileNames = _fileProviderService.ReadFileNames();
+
+        // Assert
+        Assert.Contains(testFile1, fileNames);
+        Assert.Contains(testFile2, fileNames);
     }
 
     // Helper class to create a temporary file for testing

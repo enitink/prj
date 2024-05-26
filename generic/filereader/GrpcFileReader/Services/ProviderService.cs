@@ -46,7 +46,7 @@ public class FileProviderService : IProviderService {
             throw new ArgumentException("File path cannot be empty or null");
         }
 
-        _filePath = _folderPath + filePath;
+        _filePath = filePath;
     }
 
     // Provider to open required handle to serve the data
@@ -57,8 +57,9 @@ public class FileProviderService : IProviderService {
             throw new InvalidOperationException("File path is not set yet");
         }
         try {
-            _fileStream = new FileStream(_filePath, FileMode.Open, FileAccess.Read);
-            _logger.LogInformation("File stream opened for file {" + _filePath + "}");
+            string filePath = Path.Combine(_folderPath, _filePath);
+            _fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            _logger.LogInformation("File stream opened for file {" + filePath + "}");
         }
         catch (Exception e) {
             _logger.LogError(e, "Failed to open file stream");
@@ -109,6 +110,9 @@ public class FileProviderService : IProviderService {
         string[] fileNames = Directory.GetFiles(_folderPath);
         if (fileNames.Length == 0) {
             throw new FileNotFoundException("No files found in the directory");
+        }
+        for (int i = 0; i < fileNames.Length; i++) {
+            fileNames[i] = Path.GetFileName(fileNames[i]);
         }
         return fileNames;
     }

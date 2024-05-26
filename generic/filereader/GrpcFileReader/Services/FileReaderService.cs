@@ -68,8 +68,6 @@ public class FileReaderService : GrpcFileReader.FileReaderService.FileReaderServ
         }
     }
 
-    
-
     /*
         public override async Task GetFileBytes(
         GetFileBytesRequest request,
