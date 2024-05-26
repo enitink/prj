@@ -21,7 +21,7 @@ public class FileReaderService : GrpcFileReader.FileReaderService.FileReaderServ
         long offset = 0;
 
         try {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", request.InputString);
+            string filePath = request.InputString;
             _logger.LogInformation("Received request for file {" + filePath + "}");
 
             _provider.SetInputFile(filePath);
@@ -50,6 +50,25 @@ public class FileReaderService : GrpcFileReader.FileReaderService.FileReaderServ
             throw new RpcException(new Status(StatusCode.Internal, e.Message), new Metadata());
         }
     }
+
+    public override async Task GetFileNames(
+        GetFileNamesRequest request,
+        IServerStreamWriter<GetFileNamesResponse> responseStream,
+        ServerCallContext context) {
+    
+        try {
+            string[] files = _provider.ReadFileNames();
+            foreach (string file in files) {
+                await responseStream.WriteAsync(new GetFileNamesResponse { FileNames = file });
+            }
+        }
+        catch (Exception e) {
+            _logger.LogError(e, "Failed to read filenames");
+            throw new RpcException(new Status(StatusCode.Internal, e.Message), new Metadata());
+        }
+    }
+
+    
 
     /*
         public override async Task GetFileBytes(

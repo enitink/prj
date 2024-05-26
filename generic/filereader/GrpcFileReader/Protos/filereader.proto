@@ -6,6 +6,7 @@ package GrpcFileReader;
 
 service FileReaderService {
   rpc GetFileBytes(GetFileBytesRequest) returns (stream GetFileBytesResponse) {}
+  rpc GetFileNames(GetFileNamesRequest) returns (stream GetFileNamesResponse) {}
 }
 
 message GetFileBytesRequest {
@@ -14,4 +15,12 @@ message GetFileBytesRequest {
 
 message GetFileBytesResponse {
   bytes data = 1;
+}
+
+message GetFileNamesRequest {
+  // You can add fields here if needed
+}
+
+message GetFileNamesResponse {
+  string file_names = 1;
 }

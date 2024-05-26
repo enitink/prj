@@ -15,6 +15,11 @@ public class IProviderService {
     public virtual byte ReadByte(long offset) {
         throw new NotImplementedException();
     }
+
+    public virtual string[] ReadFileNames() {
+        throw new NotImplementedException();
+    }
+
     /*public virtual Task<byte> ReadByte(long offset) {
         throw new NotImplementedException();
     }*/
@@ -29,6 +34,8 @@ public class FileProviderService : IProviderService {
     // filestream to be opened when the init is called from grpc service is called
     private FileStream? _fileStream;
 
+    private string _folderPath = Path.Combine(Directory.GetCurrentDirectory(), "Data");
+
     public FileProviderService(ILogger<FileProviderService> logger) {
         _logger = logger;
     }
@@ -39,9 +46,8 @@ public class FileProviderService : IProviderService {
             throw new ArgumentException("File path cannot be empty or null");
         }
 
-        _filePath = filePath;
+        _filePath = _folderPath + filePath;
     }
-
 
     // Provider to open required handle to serve the data
     public override bool Init() {
@@ -96,6 +102,15 @@ public class FileProviderService : IProviderService {
             _logger.LogCritical("File stream is not initialized.");
             throw new InvalidOperationException("File stream is not initialized.");
         }
+    }
+
+    // Reads the file names from the directory
+    public override string[] ReadFileNames() {
+        string[] fileNames = Directory.GetFiles(_folderPath);
+        if (fileNames.Length == 0) {
+            throw new FileNotFoundException("No files found in the directory");
+        }
+        return fileNames;
     }
 
     /*
