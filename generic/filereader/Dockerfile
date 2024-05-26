@@ -1,19 +1,21 @@
-# https://hub.docker.com/_/microsoft-dotnet
+# Use the official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 
-# copy csproj and restore as distinct layers
-COPY *.sln .
-COPY GrpcFileReader/*.csproj ./GrpcFileReader/
-RUN dotnet restore
+# Copy the project file and restore dependencies
+COPY GrpcFileReader/GrpcFileReader.csproj ./GrpcFileReader/
+RUN dotnet restore ./GrpcFileReader/GrpcFileReader.csproj
 
-# copy everything else and build app
+# Copy the remaining files and build the app
 COPY GrpcFileReader/. ./GrpcFileReader/
 WORKDIR /source/GrpcFileReader
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet publish -c Release -o /app --no-restore
 
-# final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# Use the official .NET runtime image to run the app
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+
+# Expose the port and run the application
+EXPOSE 80
+ENTRYPOINT ["dotnet", "GrpcFileReader.dll"]
