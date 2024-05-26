@@ -50,3 +50,5 @@ generic/filereader/GrpcFileReader/bin
 generic/filereader/GrpcFileReader/obj
 generic/filereader/Test/bin
 generic/filereader/Test/obj
+generic/genai/docassist/chroma_db
+generic/genai/docassist/data
