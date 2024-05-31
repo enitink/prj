@@ -62,6 +62,7 @@ app = FastAPI()
 class UserInput(BaseModel):
     text: str
 
+
 @app.post("/chat")
 async def chat(user_input: UserInput):
     #query_engine = index.as_query_engine()
