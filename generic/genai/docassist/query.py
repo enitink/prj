@@ -36,6 +36,8 @@ index = VectorStoreIndex.from_vector_store(
     vector_store, storage_context=storage_context
 )
 
+query_engine = index.as_query_engine()
+
 memory = ChatMemoryBuffer.from_defaults(token_limit=1500)
 chat_engine = index.as_chat_engine(
     chat_mode="context",
