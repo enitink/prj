@@ -31,7 +31,7 @@ public:
 
         for ( ;i<len; ++i)
         {
-            if (newInterval[1] < intervals[i][0]) {
+            if (newInterval[1] <= intervals[i][0]) {
                 result.push_back(newInterval);
                 newInterval = intervals[i];
             }
@@ -51,7 +51,7 @@ int main()
 {
     Solution sol;
     {
-        vector<vector<int>> intervals = {{1,3},{2,6},{8,10},{15,18}};
+        vector<vector<int>> intervals = {{3,4},{4,8},{2,5},{3,8}};
         vector<vector<int>> res = sol.merge(intervals);
         printvector(res);
     }
