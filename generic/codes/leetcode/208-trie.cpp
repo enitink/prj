@@ -41,7 +41,7 @@ public:
             else
             {
                 break;
-            }    
+            }
         }
 
         for(;i<wlen; ++i)
@@ -65,7 +65,7 @@ public:
             {
                 lchilds = lchilds->childs[word[i] - 'a'];
                 if (i + 1 == wlen)
-                   break; 
+                    break; 
             }
             else
                 return false;
