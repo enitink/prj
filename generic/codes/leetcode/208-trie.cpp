@@ -85,7 +85,7 @@ public:
             {
                 lchilds = lchilds->childs[prefix[i] - 'a'];
                 if (i + 1 == wlen)
-                   return true;
+                    return true;
             }
             else
                 return false;
