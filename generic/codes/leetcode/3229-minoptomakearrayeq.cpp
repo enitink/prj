@@ -26,25 +26,25 @@ class Solution {
 
 public:
     long long minimumOperations(vector<int>& nums, vector<int>& target) {
-        int len = target.size(),i;
-        vector<int> diffs(len);
+        int len = target.size();
+        int result = 0, i, diff, incr = 0, decr = 0;
         for (i = 0; i < len; ++i) {
-            diffs[i]= (target[i] - nums[i]);
-        }
-        int result = 0;
-        i = 0;
-        int prevdiff = diffs[i];
-        int lmax = diffs[i];
-        for(i=0;i<len-1;++i) {
-            if (prevdiff == diffs[i]) {
-                continue;
-            }
-            else {
-                prevdiff = diffs[i];
-                if (lmax < diffs[i]) {
-                    lmax = diffs[i];
+            diff = target[i] - nums[i];
+            //cout << diff << ":" << incr << ":" << decr << endl;
+            if (diff > 0) {
+                if (diff > incr) {
+                    result += (diff - incr);
                 }
-                result += abs(lmax);
+                incr = diff;
+                decr = 0;
+            } else if (diff < 0) {
+                if (abs(diff) > decr) {
+                    result += (abs(diff) - decr);
+                }
+                decr = abs(diff);
+                incr = 0;
+            } else {
+                incr = decr = 0;
             }
         }
         return result;
